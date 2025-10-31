@@ -1,0 +1,3653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ética Profesional - Sesión 7</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    
+    <style>
+        /* CSS Unificado de style.css */
+        :root {
+            /* Primitive Color Tokens */
+            --color-white: rgba(255, 255, 255, 1);
+            --color-black: rgba(0, 0, 0, 1);
+            --color-cream-50: rgba(252, 252, 249, 1);
+            --color-cream-100: rgba(255, 255, 253, 1);
+            --color-gray-200: rgba(245, 245, 245, 1);
+            --color-gray-300: rgba(167, 169, 169, 1);
+            --color-gray-400: rgba(119, 124, 124, 1);
+            --color-slate-500: rgba(98, 108, 113, 1);
+            --color-brown-600: rgba(94, 82, 64, 1);
+            --color-charcoal-700: rgba(31, 33, 33, 1);
+            --color-charcoal-800: rgba(38, 40, 40, 1);
+            --color-slate-900: rgba(19, 52, 59, 1);
+            --color-teal-300: rgba(50, 184, 198, 1);
+            --color-teal-400: rgba(45, 166, 178, 1);
+            --color-teal-500: rgba(33, 128, 141, 1);
+            --color-teal-600: rgba(29, 116, 128, 1);
+            --color-teal-700: rgba(26, 104, 115, 1);
+            --color-teal-800: rgba(41, 150, 161, 1);
+            --color-red-400: rgba(255, 84, 89, 1);
+            --color-red-500: rgba(192, 21, 47, 1);
+            --color-orange-400: rgba(230, 129, 97, 1);
+            --color-orange-500: rgba(168, 75, 47, 1);
+
+            /* RGB versions for opacity control */
+            --color-brown-600-rgb: 94, 82, 64;
+            --color-teal-500-rgb: 33, 128, 141;
+            --color-slate-900-rgb: 19, 52, 59;
+            --color-slate-500-rgb: 98, 108, 113;
+            --color-red-500-rgb: 192, 21, 47;
+            --color-red-400-rgb: 255, 84, 89;
+            --color-orange-500-rgb: 168, 75, 47;
+            --color-orange-400-rgb: 230, 129, 97;
+
+            /* Semantic Color Tokens */
+            --color-background: var(--color-cream-50);
+            --color-surface: var(--color-cream-100);
+            --color-text: var(--color-slate-900);
+            --color-text-secondary: var(--color-slate-500);
+            --color-primary: var(--color-teal-500);
+            --color-primary-hover: var(--color-teal-600);
+            --color-primary-active: var(--color-teal-700);
+            --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+            --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+            --color-btn-primary-text: var(--color-cream-50);
+            --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+            --color-error: var(--color-red-500);
+            --color-success: var(--color-teal-500);
+            --color-warning: var(--color-orange-500);
+            --color-info: var(--color-slate-500);
+            --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+
+            /* Custom colors */
+            --color-blue: #2563eb;
+            --color-orange: #f97316;
+            --color-green: #10b981;
+            --color-purple: #8b5cf6;
+            --color-yellow: #fbbf24;
+            --color-pink: #ec4899;
+        }
+
+        /* Dark mode colors */
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-gray-400-rgb: 119, 124, 124;
+                --color-teal-300-rgb: 50, 184, 198;
+                --color-gray-300-rgb: 167, 169, 169;
+                --color-gray-200-rgb: 245, 245, 245;
+                --color-background: var(--color-charcoal-700);
+                --color-surface: var(--color-charcoal-800);
+                --color-text: var(--color-gray-200);
+                --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+                --color-primary: var(--color-teal-300);
+                --color-btn-primary-text: var(--color-slate-900);
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background-color: var(--color-background);
+            color: var(--color-text);
+            line-height: 1.6;
+        }
+
+        .app-container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Header */
+        .app-header {
+            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 100%);
+            color: white;
+            padding: 2rem 1rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .header-content h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .header-subtitle {
+            font-size: 1.1rem;
+            opacity: 0.95;
+        }
+
+        /* Navigation Tabs */
+        .tabs-navigation {
+            background-color: var(--color-surface);
+            border-bottom: 2px solid var(--color-border);
+            padding: 0 1rem;
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--color-text-secondary);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border-bottom: 3px solid transparent;
+            white-space: nowrap;
+        }
+
+        .tab-btn:hover {
+            color: var(--color-primary);
+            background-color: var(--color-bg-1);
+        }
+
+        .tab-btn.active {
+            color: var(--color-primary);
+            border-bottom-color: var(--color-primary);
+            background-color: var(--color-bg-1);
+        }
+
+        .tab-icon {
+            font-size: 1.2rem;
+        }
+
+        .tab-label {
+            font-size: 0.95rem;
+        }
+
+        .tab-badge {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 0.2rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+            width: 100%;
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: var(--color-text);
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            margin-bottom: 2rem;
+        }
+
+        /* Introducción */
+        .intro-hero {
+            background-color: var(--color-surface);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .intro-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .intro-text h3 {
+            color: var(--color-primary);
+            margin-bottom: 1rem;
+        }
+
+        .intro-text p {
+            margin-bottom: 1rem;
+            line-height: 1.8;
+        }
+
+        .objectives-box {
+            background-color: var(--color-bg-1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--color-blue);
+        }
+
+        .objectives-box h4 {
+            margin-bottom: 1rem;
+            color: var(--color-blue);
+        }
+
+        .objectives-box ul {
+            list-style-position: inside;
+            padding-left: 0.5rem;
+        }
+
+        .objectives-box li {
+            margin-bottom: 0.5rem;
+        }
+
+        .intro-images {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .intro-img {
+            width: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Slideshow Section */
+        .slides-section {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .slideshow-container {
+            margin-top: 1.5rem;
+            background-color: var(--color-background);
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .slide-wrapper {
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #slide-container {
+            position: relative;
+        }
+
+        .slide {
+            display: none;
+            padding: 3rem;
+            border-radius: 12px;
+            min-height: 450px;
+            animation: slideIn 0.5s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .slide.slide-out {
+            animation: slideOut 0.3s ease;
+        }
+
+        @keyframes slideOut {
+            from {
+                opacity: 1;
+                transform: translateX(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateX(-30px);
+            }
+        }
+
+        .slide-portada {
+            background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 100%);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .slide-portada h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+
+        .slide-portada .slide-icon {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .slide-1 {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+        }
+
+        .slide-2 {
+            background: linear-gradient(135deg, rgba(245, 158, 11, 0.15) 0%, rgba(249, 115, 22, 0.15) 100%);
+        }
+
+        .slide-3 {
+            background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(6, 182, 212, 0.15) 100%);
+        }
+
+        .slide-4 {
+            background: linear-gradient(135deg, rgba(239, 68, 68, 0.15) 0%, rgba(236, 72, 153, 0.15) 100%);
+        }
+
+        .slide-5 {
+            background: linear-gradient(135deg, rgba(147, 51, 234, 0.15) 0%, rgba(59, 130, 246, 0.15) 100%);
+        }
+
+        .slide-6 {
+            background: linear-gradient(135deg, rgba(249, 115, 22, 0.15) 0%, rgba(245, 158, 11, 0.15) 100%);
+        }
+
+        .slide-7 {
+            background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(34, 197, 94, 0.15) 100%);
+        }
+
+        .slide-8 {
+            background: linear-gradient(135deg, rgba(236, 72, 153, 0.15) 0%, rgba(239, 68, 68, 0.15) 100%);
+        }
+
+        .slide-9 {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15) 0%, rgba(147, 51, 234, 0.15) 100%);
+        }
+
+        .slide-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .slide-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .slide-icon {
+            font-size: 3rem;
+        }
+
+        .slide h2 {
+            font-size: 2rem;
+            color: var(--color-text);
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .slide-points {
+            list-style: none;
+            padding: 0;
+        }
+
+        .slide-points li {
+            padding: 1rem 1.5rem;
+            margin-bottom: 1rem;
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            border-left: 4px solid var(--color-primary);
+            font-size: 1.05rem;
+            line-height: 1.6;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s ease;
+        }
+
+        .slide-points li:hover {
+            transform: translateX(5px);
+        }
+
+        .slide-points li::before {
+            content: '✓';
+            color: var(--color-primary);
+            font-weight: bold;
+            margin-right: 0.75rem;
+            font-size: 1.2rem;
+        }
+
+        .slide-activity {
+            background-color: var(--color-bg-2);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+            border: 2px solid var(--color-orange);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-activity::before {
+            content: '🎯 Actividad: ';
+            font-weight: 700;
+            color: var(--color-orange);
+            font-size: 1.1rem;
+        }
+
+        .slide-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .slide-nav-btn {
+            background-color: var(--color-primary);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .slide-nav-btn:hover {
+            background-color: var(--color-primary-hover);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .slide-nav-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .slide-indicator {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--color-text);
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-secondary);
+            border-radius: 20px;
+            min-width: 100px;
+            text-align: center;
+        }
+
+        .slide-final-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--color-green) 0%, var(--color-teal-500) 100%);
+            color: white;
+            padding: 1.25rem 2.5rem;
+            border-radius: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            margin-top: 2rem;
+            cursor: pointer;
+            border: none;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .slide-final-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+        }
+
+        .slide-cierre {
+            text-align: center;
+            padding: 3rem;
+        }
+
+        .slide-cierre h2 {
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            color: var(--color-primary);
+        }
+
+        .slide-cierre .slide-points {
+            text-align: left;
+            max-width: 700px;
+            margin: 2rem auto;
+        }
+
+        /* Content Separator */
+        .content-separator {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            margin: 3rem 0;
+            padding: 1.5rem 0;
+        }
+
+        .separator-line {
+            flex: 1;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-border), transparent);
+        }
+
+        .separator-text {
+            color: var(--color-text-secondary);
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-align: center;
+            white-space: nowrap;
+            padding: 0 1rem;
+        }
+
+        /* Video Section */
+        .video-section {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .subsection-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .subsection-desc {
+            color: var(--color-text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .video-container {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Quiz */
+        .quiz-section {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .quiz-container {
+            margin-top: 1.5rem;
+        }
+
+        .quiz-question {
+            background-color: var(--color-bg-2);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+            border: 2px solid var(--color-border);
+        }
+
+        .quiz-question h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .quiz-image {
+            width: 100%;
+            max-width: 400px;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .quiz-options {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .quiz-option {
+            background-color: var(--color-surface);
+            padding: 1rem;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .quiz-option:hover {
+            border-color: var(--color-primary);
+            background-color: var(--color-bg-1);
+        }
+
+        .quiz-option input[type="radio"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        .quiz-option.correct {
+            background-color: rgba(16, 185, 129, 0.1);
+            border-color: var(--color-green);
+        }
+
+        .quiz-option.incorrect {
+            background-color: rgba(239, 68, 68, 0.1);
+            border-color: var(--color-error);
+        }
+
+        .feedback {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .feedback.correct {
+            background-color: rgba(16, 185, 129, 0.15);
+            color: var(--color-green);
+            border-left: 4px solid var(--color-green);
+        }
+
+        .feedback.incorrect {
+            background-color: rgba(239, 68, 68, 0.15);
+            color: var(--color-error);
+            border-left: 4px solid var(--color-error);
+        }
+
+        .quiz-results {
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--color-green) 0%, var(--color-teal-500) 100%);
+            border-radius: 16px;
+            color: white;
+        }
+
+        .results-content h3 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .score-display {
+            margin: 2rem 0;
+        }
+
+        .score-circle {
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .score-total {
+            font-size: 1.5rem;
+        }
+
+        .results-message {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Videos Grid */
+        .videos-progress {
+            background-color: var(--color-bg-3);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-left: 4px solid var(--color-green);
+        }
+
+        .videos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .video-card {
+            background-color: var(--color-surface);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--color-card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-thumbnail {
+            position: relative;
+            padding-top: 56.25%;
+            overflow: hidden;
+            background-color: #000;
+        }
+
+        .video-thumbnail img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            border: none;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .play-btn:hover {
+            background-color: var(--color-primary);
+            color: white;
+            transform: translate(-50%, -50%) scale(1.1);
+        }
+
+        .video-info {
+            padding: 1.5rem;
+        }
+
+        .video-info h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-duration {
+            color: var(--color-text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .video-description {
+            color: var(--color-text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .video-actions {
+            margin-top: 1rem;
+        }
+
+        .checkbox-label {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            cursor: pointer;
+            font-weight: 500;
+        }
+
+        .checkbox-label input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: 12px;
+            max-width: 90%;
+            max-height: 90%;
+            position: relative;
+        }
+
+        .video-modal-content {
+            max-width: 1000px;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            font-size: 2rem;
+            cursor: pointer;
+            color: var(--color-text);
+            z-index: 1001;
+        }
+
+        .close-modal:hover {
+            color: var(--color-error);
+        }
+
+        /* Activity Card */
+        .activity-card {
+            background-color: var(--color-surface);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--color-card-border);
+        }
+
+        .activity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--color-border);
+        }
+
+        .activity-header h3 {
+            font-size: 1.3rem;
+            color: var(--color-text);
+        }
+
+        .activity-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .activity-status.pendiente {
+            background-color: var(--color-bg-2);
+            color: var(--color-orange);
+        }
+
+        .activity-status.completada {
+            background-color: var(--color-bg-3);
+            color: var(--color-green);
+        }
+
+        .activity-img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 12px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Drag and Drop */
+        .drag-drop-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .valores-column h4,
+        .situaciones-column h4 {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .draggable-items {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .draggable-item {
+            background: linear-gradient(135deg, var(--color-blue) 0%, var(--color-purple) 100%);
+            color: white;
+            padding: 1rem;
+            border-radius: 8px;
+            cursor: grab;
+            font-weight: 600;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease;
+        }
+
+        .draggable-item:active {
+            cursor: grabbing;
+            transform: scale(1.05);
+        }
+
+        .drop-zone {
+            margin-bottom: 1rem;
+        }
+
+        .drop-zone p {
+            background-color: var(--color-bg-1);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .drop-area {
+            border: 2px dashed var(--color-border);
+            border-radius: 8px;
+            padding: 1rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--color-background);
+            transition: all 0.3s ease;
+        }
+
+        .drop-area.drag-over {
+            border-color: var(--color-primary);
+            background-color: var(--color-bg-1);
+        }
+
+        .drop-area.correct {
+            border-color: var(--color-green);
+            background-color: rgba(16, 185, 129, 0.1);
+        }
+
+        .drop-area.incorrect {
+            border-color: var(--color-error);
+            background-color: rgba(239, 68, 68, 0.1);
+        }
+
+        /* Decision Ética */
+        .escenario-card {
+            background-color: var(--color-bg-2);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 1.5rem;
+        }
+
+        .escenario-card img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .escenario-card h4 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .opciones-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .opcion-card {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 2px solid var(--color-border);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .opcion-card:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .opcion-card.selected {
+            border-color: var(--color-primary);
+            background-color: var(--color-bg-1);
+        }
+
+        /* Verdadero o Falso */
+        .tf-container {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .tf-item {
+            background-color: var(--color-bg-5);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-purple);
+        }
+
+        .tf-item p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .tf-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .tf-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            background-color: var(--color-surface);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .tf-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .tf-btn.verdadero {
+            color: var(--color-green);
+            border-color: var(--color-green);
+        }
+
+        .tf-btn.falso {
+            color: var(--color-error);
+            border-color: var(--color-error);
+        }
+
+        .tf-btn.correct {
+            background-color: rgba(16, 185, 129, 0.2);
+        }
+
+        .tf-btn.incorrect {
+            background-color: rgba(239, 68, 68, 0.2);
+        }
+
+        .tf-score {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 1rem;
+            color: var(--color-primary);
+        }
+
+        /* Proyecto de Vida */
+        .plazos-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .plazo-btn {
+            flex: 1;
+            padding: 1rem;
+            border: 2px solid var(--color-border);
+            background-color: var(--color-surface);
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .plazo-btn:hover {
+            border-color: var(--color-primary);
+        }
+
+        .plazo-btn.active {
+            background-color: var(--color-primary);
+            color: white;
+            border-color: var(--color-primary);
+        }
+
+        .areas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .area-card {
+            background-color: var(--color-bg-1);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--color-blue);
+        }
+
+        .area-card h4 {
+            margin-bottom: 1rem;
+            color: var(--color-text);
+        }
+
+        .area-card textarea {
+            width: 100%;
+            min-height: 100px;
+            padding: 0.75rem;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            font-family: inherit;
+            font-size: 0.95rem;
+            resize: vertical;
+        }
+
+        /* Memory Game */
+        .memory-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .memory-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .memory-card {
+            aspect-ratio: 1;
+            background: linear-gradient(135deg, var(--color-purple) 0%, var(--color-pink) 100%);
+            border-radius: 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .memory-card:hover {
+            transform: scale(1.05);
+        }
+
+        .memory-card.flipped {
+            background: linear-gradient(135deg, var(--color-green) 0%, var(--color-teal-500) 100%);
+        }
+
+        .memory-card.matched {
+            background: linear-gradient(135deg, var(--color-orange) 0%, var(--color-yellow) 100%);
+            cursor: default;
+        }
+
+        .memory-card.hidden {
+            background-color: var(--color-gray-200);
+        }
+
+        /* Simulador */
+        .caso-card {
+            background-color: var(--color-surface);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--color-card-border);
+        }
+
+        .caso-header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .caso-header h3 {
+            font-size: 1.8rem;
+            color: var(--color-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .caso-contexto {
+            background-color: var(--color-bg-6);
+            padding: 1.5rem;
+            border-radius: 12px;
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--color-orange);
+        }
+
+        .caso-contexto img {
+            width: 100%;
+            max-width: 500px;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        .caso-opciones {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .caso-opcion {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            border: 2px solid var(--color-border);
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .caso-opcion:hover {
+            border-color: var(--color-primary);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .caso-consecuencia {
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .caso-consecuencia.positiva {
+            background-color: rgba(16, 185, 129, 0.15);
+            border-left: 6px solid var(--color-green);
+        }
+
+        .caso-consecuencia.negativa {
+            background-color: rgba(239, 68, 68, 0.15);
+            border-left: 6px solid var(--color-error);
+        }
+
+        .caso-consecuencia.parcial {
+            background-color: rgba(245, 158, 11, 0.15);
+            border-left: 6px solid var(--color-orange);
+        }
+
+        .caso-consecuencia h4 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        /* Libreta */
+        .libreta-progress {
+            background-color: var(--color-bg-7);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            border-left: 4px solid var(--color-pink);
+        }
+
+        .libreta-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .libreta-card {
+            background-color: var(--color-surface);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border: 2px solid var(--color-card-border);
+        }
+
+        .libreta-icon {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .libreta-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .libreta-content ul {
+            margin: 1rem 0;
+            padding-left: 1.5rem;
+        }
+
+        .libreta-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tip {
+            background-color: var(--color-bg-2);
+            padding: 0.75rem;
+            border-radius: 8px;
+            margin-top: 1rem;
+            font-weight: 500;
+        }
+
+        .example-img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+
+        /* Progreso */
+        .progreso-header {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            align-items: center;
+        }
+
+        .progreso-total {
+            text-align: center;
+        }
+
+        .progreso-total h3 {
+            margin-bottom: 1rem;
+            color: var(--color-primary);
+        }
+
+        .progress-circle-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .progress-ring {
+            transform: rotate(-90deg);
+        }
+
+        .progress-ring-circle {
+            transition: stroke-dashoffset 0.5s ease;
+            stroke-dasharray: 534;
+            stroke-dashoffset: 534;
+        }
+
+        .progress-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-primary);
+        }
+
+        .progreso-stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+        }
+
+        .stat-card {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .stat-icon {
+            font-size: 2rem;
+        }
+
+        .stat-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .stat-value {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--color-text);
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: var(--color-text-secondary);
+        }
+
+        .progreso-details {
+            background-color: var(--color-surface);
+            padding: 2rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--color-card-border);
+        }
+
+        .progreso-details h3 {
+            margin-bottom: 1.5rem;
+            color: var(--color-primary);
+        }
+
+        .progreso-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .progreso-table th,
+        .progreso-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .progreso-table th {
+            background-color: var(--color-bg-1);
+            font-weight: 600;
+            color: var(--color-text);
+        }
+
+        .progreso-table tbody tr:hover {
+            background-color: var(--color-bg-1);
+        }
+
+        .status-badge {
+            padding: 0.4rem 0.8rem;
+            border-radius: 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+        }
+
+        .status-badge.completado {
+            background-color: rgba(16, 185, 129, 0.2);
+            color: var(--color-green);
+        }
+
+        .status-badge.pendiente {
+            background-color: rgba(245, 158, 11, 0.2);
+            color: var(--color-orange);
+        }
+
+        .progreso-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .student-name-input {
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .student-name-input label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        .student-name-input input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 2px solid var(--color-border);
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-hover);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-secondary);
+            color: var(--color-text);
+        }
+
+        .btn-secondary:hover {
+            background-color: var(--color-secondary-hover);
+        }
+
+        .btn-success {
+            background-color: var(--color-green);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #059669;
+        }
+
+        .btn-warning {
+            background-color: var(--color-orange);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #ea580c;
+        }
+
+        .btn-lg {
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+        }
+
+        /* Footer */
+        .app-footer {
+            background-color: var(--color-surface);
+            padding: 1.5rem;
+            text-align: center;
+            color: var(--color-text-secondary);
+            border-top: 1px solid var(--color-border);
+            margin-top: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .drag-drop-container {
+                grid-template-columns: 1fr;
+            }
+
+            .memory-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .progreso-header {
+                grid-template-columns: 1fr;
+            }
+
+            .tabs-navigation {
+                overflow-x: scroll;
+            }
+
+            .tab-label {
+                display: none;
+            }
+
+            .header-content h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="app-header">
+            <div class="header-content">
+                <h1>🎓 Ética Profesional</h1>
+                <p class="header-subtitle">Licenciatura en Educación</p>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="tabs-navigation">
+            <button class="tab-btn active" data-tab="introduccion">
+                <span class="tab-icon">📚</span>
+                <span class="tab-label">Introducción</span>
+                <span class="tab-badge" id="badge-intro">0/1</span>
+            </button>
+            <button class="tab-btn" data-tab="videos">
+                <span class="tab-icon">🎥</span>
+                <span class="tab-label">Videos</span>
+                <span class="tab-badge" id="badge-videos">0/3</span>
+            </button>
+            <button class="tab-btn" data-tab="actividades">
+                <span class="tab-icon">🎯</span>
+                <span class="tab-label">Actividades</span>
+                <span class="tab-badge" id="badge-actividades">0/5</span>
+            </button>
+            <button class="tab-btn" data-tab="simulador">
+                <span class="tab-icon">💡</span>
+                <span class="tab-label">Simulador</span>
+                <span class="tab-badge" id="badge-simulador">0/3</span>
+            </button>
+            <button class="tab-btn" data-tab="libreta">
+                <span class="tab-icon">📝</span>
+                <span class="tab-label">Libreta</span>
+                <span class="tab-badge" id="badge-libreta">0/3</span>
+            </button>
+            <button class="tab-btn" data-tab="progreso">
+                <span class="tab-icon">📊</span>
+                <span class="tab-label">Progreso</span>
+                <span class="tab-badge" id="badge-progreso">0%</span>
+            </button>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            
+            <!-- SESIÓN 1: INTRODUCCIÓN -->
+            <section id="tab-introduccion" class="tab-content active">
+                <div class="intro-hero">
+                    <div class="intro-header">
+                        <h2 class="section-title">Sesión 7: La Ética en la Vida Cotidiana</h2>
+                        <p class="section-subtitle">1.4.4 Metas y Proyecto de Vida</p>
+                    </div>
+                    
+                    <div class="intro-grid">
+                        <div class="intro-text">
+                            <h3>🌟 Bienvenido a esta sesión</h3>
+                            <p>La ética no es solo un concepto abstracto; es una guía práctica que ilumina nuestras decisiones diarias. En esta sesión exploraremos cómo la ética profesional se entrelaza con nuestro proyecto de vida, moldeando nuestras metas y aspiraciones.</p>
+                            
+                            <p>Un proyecto de vida ético no solo nos lleva al éxito profesional, sino que construye una base sólida de integridad, confianza y respeto. Aprenderemos a alinear nuestros sueños con valores profesionales que nos definirán como educadores comprometidos.</p>
+                            
+                            <div class="objectives-box">
+                                <h4>📌 Objetivos de aprendizaje:</h4>
+                                <ul>
+                                    <li>Comprender la ética en la vida cotidiana</li>
+                                    <li>Diseñar metas alineadas con valores éticos</li>
+                                    <li>Construir un proyecto de vida profesional</li>
+                                    <li>Aplicar dilemas éticos en contextos reales</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="intro-images">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1761861138/pplx_project_search_images/0233dd3e97c4f8a2e2d896ffa7d94eba0b9abdef.png" onerror="this.onerror=null; this.src='https://placehold.co/400x300/F97316/FFFFFF?text=Proyecto+de+Vida';" alt="Proyecto de Vida" class="intro-img">
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1761861138/pplx_project_search_images/4079f0788ab3f30ce964f5cffd5b0d227b9c03a8.png" onerror="this.onerror=null; this.src='https://placehold.co/400x300/2563EB/FFFFFF?text=Metas+y+Sueños';" alt="Metas y Sueños" class="intro-img">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carrusel de Diapositivas PowerPoint -->
+                <div class="slides-section">
+                    <h3 class="subsection-title">📊 Fundamentos de Ética Profesional</h3>
+                    <p class="subsection-desc">Explora estos conceptos clave antes de continuar con el video</p>
+                    
+                    <div class="slideshow-container">
+                        <div class="slide-wrapper">
+                            <div id="slide-container">
+                                <!-- Las diapositivas se generan dinámicamente -->
+                            </div>
+                        </div>
+                        
+                        <div class="slide-controls">
+                            <button class="slide-nav-btn" id="prev-slide" onclick="cambiarDiapositiva(-1)">← Anterior</button>
+                            <div class="slide-indicator" id="slide-indicator">1 / 10</div>
+                            <button class="slide-nav-btn" id="next-slide" onclick="cambiarDiapositiva(1)">Siguiente →</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Separador antes del video -->
+                <div class="content-separator">
+                    <div class="separator-line"></div>
+                    <p class="separator-text">Ahora que conoces los fundamentos, profundicemos con el siguiente video</p>
+                    <div class="separator-line"></div>
+                </div>
+
+                <!-- Video Introductorio -->
+                <div class="video-section">
+                    <h3 class="subsection-title">🎬 Video Introductorio</h3>
+                    <p class="subsection-desc">Importancia de la ética profesional (6:37 min)</p>
+                    <div class="video-container">
+                        <iframe 
+                            width="100%" 
+                            height="500" 
+                            src="https://www.youtube.com/embed/PFcny-Oi_uk" 
+                            title="Importancia de la ética profesional"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+                <!-- Quiz -->
+                <div class="quiz-section">
+                    <h3 class="subsection-title">🧠 Quiz: Evalúa tu comprensión</h3>
+                    <p class="subsection-desc">Responde las siguientes preguntas basadas en el video</p>
+                    
+                    <div id="quiz-container" class="quiz-container">
+                        <!-- Generado dinámicamente por JavaScript -->
+                    </div>
+
+                    <div id="quiz-results" class="quiz-results" style="display: none;">
+                        <div class="results-content">
+                            <h3>🎉 ¡Quiz Completado!</h3>
+                            <div class="score-display">
+                                <div class="score-circle">
+                                    <span id="final-score">0</span>
+                                    <span class="score-total">/5</span>
+                                </div>
+                            </div>
+                            <p id="results-message" class="results-message"></p>
+                            <button class="btn btn-primary" onclick="marcarIntroCompletada()">Marcar como Completado</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SESIÓN 2: VIDEOS EDUCATIVOS -->
+            <section id="tab-videos" class="tab-content">
+                <h2 class="section-title">🎥 Videos Educativos</h2>
+                <p class="section-subtitle">Explora estos recursos sobre ética y proyecto de vida</p>
+                
+                <div class="videos-progress">
+                    <p>Has visto <strong><span id="videos-count">0</span> de 3</strong> videos</p>
+                </div>
+
+                <div class="videos-grid">
+                    <div class="video-card" data-video-id="1">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/YU3f3nCfyZc/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x225/10B981/FFFFFF?text=Video+1';" alt="Ética en la vida cotidiana">
+                            <button class="play-btn" onclick="abrirVideo('YU3f3nCfyZc')">▶</button>
+                        </div>
+                        <div class="video-info">
+                            <h3>Ética en la vida cotidiana</h3>
+                            <p class="video-duration">⏱️ 1:47 min</p>
+                            <p class="video-description">Reflexión sobre cómo aplicar la ética en nuestro día a día.</p>
+                            <div class="video-actions">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" onchange="marcarVideoVisto(1)">
+                                    <span>✅ Video visto y completado</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-video-id="2">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/wmTX40QwTUY/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x225/F97316/FFFFFF?text=Video+2';" alt="Proyecto de vida">
+                            <button class="play-btn" onclick="abrirVideo('wmTX40QwTUY')">▶</button>
+                        </div>
+                        <div class="video-info">
+                            <h3>Cómo hacer tu proyecto de vida paso a paso</h3>
+                            <p class="video-duration">⏱️ 19:47 min</p>
+                            <p class="video-description">Guía completa para diseñar tu proyecto de vida con metas claras.</p>
+                            <div class="video-actions">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" onchange="marcarVideoVisto(2)">
+                                    <span>✅ Video visto y completado</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="video-card" data-video-id="3">
+                        <div class="video-thumbnail">
+                            <img src="https://img.youtube.com/vi/t8jEj3eGte4/maxresdefault.jpg" onerror="this.onerror=null; this.src='https://placehold.co/400x225/2563EB/FFFFFF?text=Video+3';" alt="Ética Profesional">
+                            <button class="play-btn" onclick="abrirVideo('t8jEj3eGte4')">▶</button>
+                        </div>
+                        <div class="video-info">
+                            <h3>Ética Profesional - Conceptos básicos</h3>
+                            <p class="video-duration">⏱️ 5:30 min</p>
+                            <p class="video-description">Fundamentos de la ética profesional en el mundo laboral.</p>
+                            <div class="video-actions">
+                                <label class="checkbox-label">
+                                    <input type="checkbox" onchange="marcarVideoVisto(3)">
+                                    <span>✅ Video visto y completado</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Modal para reproducir videos -->
+                <div id="video-modal" class="modal">
+                    <div class="modal-content video-modal-content">
+                        <span class="close-modal" onclick="cerrarVideoModal()">&times;</span>
+                        <div id="video-player"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SESIÓN 3: ACTIVIDADES INTERACTIVAS -->
+            <section id="tab-actividades" class="tab-content">
+                <h2 class="section-title">🎯 Actividades Interactivas</h2>
+                <p class="section-subtitle">Completa estas actividades para reforzar tu aprendizaje</p>
+
+                <!-- Actividad 1: Drag & Drop -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h3>1️⃣ Relaciona Valores con Situaciones</h3>
+                        <span class="activity-status pendiente" id="status-act1">Pendiente</span>
+                    </div>
+                    <p>Arrastra cada valor a la situación que mejor lo representa:</p>
+                    <div class="drag-drop-container">
+                        <div class="valores-column">
+                            <h4>Valores</h4>
+                            <div class="draggable-items" id="valores-source">
+                                <div class="draggable-item" draggable="true" data-valor="honestidad">🤝 Honestidad</div>
+                                <div class="draggable-item" draggable="true" data-valor="responsabilidad">⏰ Responsabilidad</div>
+                                <div class="draggable-item" draggable="true" data-valor="respeto">🙏 Respeto</div>
+                                <div class="draggable-item" draggable="true" data-valor="integridad">💎 Integridad</div>
+                            </div>
+                        </div>
+                        <div class="situaciones-column">
+                            <h4>Situaciones</h4>
+                            <div class="drop-zone" data-situacion="honestidad">
+                                <p>Admitir un error en un proyecto importante</p>
+                                <div class="drop-area" data-correct="honestidad"></div>
+                            </div>
+                            <div class="drop-zone" data-situacion="responsabilidad">
+                                <p>Cumplir con los plazos comprometidos</p>
+                                <div class="drop-area" data-correct="responsabilidad"></div>
+                            </div>
+                            <div class="drop-zone" data-situacion="respeto">
+                                <p>Escuchar opiniones de colegas con atención</p>
+                                <div class="drop-area" data-correct="respeto"></div>
+                            </div>
+                            <div class="drop-zone" data-situacion="integridad">
+                                <p>Rechazar un trato contra tus principios</p>
+                                <div class="drop-area" data-correct="integridad"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="verificarDragDrop()">Verificar Respuestas</button>
+                    <button class="btn btn-secondary" onclick="reiniciarDragDrop()">Reiniciar</button>
+                </div>
+
+                <!-- Actividad 2: Decisión Ética -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h3>2️⃣ Decisión Ética - ¿Qué harías?</h3>
+                        <span class="activity-status pendiente" id="status-act2">Pendiente</span>
+                    </div>
+                    <div id="decision-etica-container">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                </div>
+
+                <!-- Actividad 3: Verdadero o Falso -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h3>3️⃣ Verdadero o Falso - Ética Cotidiana</h3>
+                        <span class="activity-status pendiente" id="status-act3">Pendiente</span>
+                    </div>
+                    <div id="verdadero-falso-container">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                    <div class="tf-score">Aciertos: <span id="tf-score">0</span> / 4</div>
+                </div>
+
+                <!-- Actividad 4: Proyecto de Vida -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h3>4️⃣ Construye tu Proyecto de Vida</h3>
+                        <span class="activity-status pendiente" id="status-act4">Pendiente</span>
+                    </div>
+                    <p>Define tus metas en diferentes áreas y plazos:</p>
+                    <img src="https://pplx-res.cloudinary.com/image/upload/v1761861138/pplx_project_search_images/add6e3985e1d7677c8492f2c23eb8eb7ebd40e04.png" onerror="this.onerror=null; this.src='https://placehold.co/600x400/8B5CF6/FFFFFF?text=Proyecto+de+Vida+Visual';" alt="Árbol de Proyecto de Vida" class="activity-img">
+                    <div class="proyecto-vida-container">
+                        <div class="plazos-tabs">
+                            <button class="plazo-btn active" data-plazo="corto">Corto Plazo (1 año)</button>
+                            <button class="plazo-btn" data-plazo="mediano">Mediano Plazo (3-5 años)</button>
+                            <button class="plazo-btn" data-plazo="largo">Largo Plazo (10+ años)</button>
+                        </div>
+                        <div class="areas-grid" id="proyecto-areas">
+                            <!-- Generado dinámicamente -->
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" onclick="guardarProyectoVida()">💾 Guardar mi Proyecto</button>
+                </div>
+
+                <!-- Actividad 5: Memoria -->
+                <div class="activity-card">
+                    <div class="activity-header">
+                        <h3>5️⃣ Memoria - Dilemas Éticos</h3>
+                        <span class="activity-status pendiente" id="status-act5">Pendiente</span>
+                    </div>
+                    <p>Encuentra los pares de dilemas éticos y sus soluciones:</p>
+                    <div class="memory-stats">
+                        <span>Intentos: <strong id="memory-attempts">0</strong></span>
+                        <span>Pares encontrados: <strong id="memory-pairs">0</strong> / 3</span>
+                    </div>
+                    <div class="memory-grid" id="memory-game">
+                        <!-- Generado dinámicamente -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- SESIÓN 4: SIMULADOR DE CASOS -->
+            <section id="tab-simulador" class="tab-content">
+                <h2 class="section-title">💡 Simulador de Casos Éticos</h2>
+                <p class="section-subtitle">Analiza situaciones reales y toma decisiones éticas</p>
+                
+                <div id="simulador-container">
+                    <!-- Generado dinámicamente -->
+                </div>
+            </section>
+
+            <!-- SESIÓN 5: PRÁCTICA EN LIBRETA -->
+            <section id="tab-libreta" class="tab-content">
+                <h2 class="section-title">📝 Práctica en tu Libreta</h2>
+                <p class="section-subtitle">Completa estas actividades de reflexión personal</p>
+                
+                <div class="libreta-progress">
+                    <p>Has completado <strong><span id="libreta-count">0</span> de 3</strong> actividades</p>
+                </div>
+
+                <div class="libreta-grid">
+                    <div class="libreta-card">
+                        <div class="libreta-icon">✍️</div>
+                        <h3>1. Reflexión sobre Decisión Ética Personal</h3>
+                        <div class="libreta-content">
+                            <p><strong>Instrucciones:</strong></p>
+                            <p>Escribe en tu libreta sobre un dilema ético que hayas enfrentado. Incluye:</p>
+                            <ul>
+                                <li>🔍 La situación que enfrentaste</li>
+                                <li>🤔 Las opciones que consideraste</li>
+                                <li>✅ La decisión que tomaste</li>
+                                <li>📚 El aprendizaje que obtuviste</li>
+                            </ul>
+                            <p class="tip">💡 Tip: Sé honesto y reflexiona profundamente. Mínimo 1 página.</p>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" onchange="marcarLibretaCompletada(1)">
+                            <span>✅ He completado esta actividad</span>
+                        </label>
+                    </div>
+
+                    <div class="libreta-card">
+                        <div class="libreta-icon">🌳</div>
+                        <h3>2. Mapa Mental de Proyecto de Vida</h3>
+                        <div class="libreta-content">
+                            <p><strong>Instrucciones:</strong></p>
+                            <p>Dibuja un mapa mental creativo con tu proyecto de vida:</p>
+                            <ul>
+                                <li>🎓 Educación: metas académicas</li>
+                                <li>💼 Carrera: aspiraciones profesionales</li>
+                                <li>❤️ Vida Personal: relaciones y bienestar</li>
+                                <li>🌍 Sociedad: impacto y contribución</li>
+                            </ul>
+                            <img src="https://pplx-res.cloudinary.com/image/upload/v1761861138/pplx_project_search_images/8713003c1115264099b5c1c2499f7774e5862230.png" onerror="this.onerror=null; this.src='https://placehold.co/400x300/EC4899/FFFFFF?text=Mapa+Mental';" alt="Ejemplo de Mapa de Sueños" class="example-img">
+                            <p class="tip">💡 Tip: Usa colores, símbolos y sé creativo. Divide en corto, mediano y largo plazo.</p>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" onchange="marcarLibretaCompletada(2)">
+                            <span>✅ He completado esta actividad</span>
+                        </label>
+                    </div>
+
+                    <div class="libreta-card">
+                        <div class="libreta-icon">💎</div>
+                        <h3>3. Mis Tres Valores Fundamentales</h3>
+                        <div class="libreta-content">
+                            <p><strong>Instrucciones:</strong></p>
+                            <p>Define tus 3 valores más importantes. Para cada uno escribe:</p>
+                            <ul>
+                                <li>❓ Por qué es importante para ti</li>
+                                <li>📖 Un ejemplo de cómo lo aplicas</li>
+                                <li>🚀 Cómo puedes fortalecerlo</li>
+                            </ul>
+                            <p class="tip">💡 Tip: Media página por cada valor. Sé específico y personal.</p>
+                        </div>
+                        <label class="checkbox-label">
+                            <input type="checkbox" onchange="marcarLibretaCompletada(3)">
+                            <span>✅ He completado esta actividad</span>
+                        </label>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SESIÓN 6: PROGRESO DEL ALUMNO -->
+            <section id="tab-progreso" class="tab-content">
+                <h2 class="section-title">📊 Tu Progreso</h2>
+                <p class="section-subtitle">Dashboard completo de tu avance en la sesión</p>
+
+                <div class="progreso-header">
+                    <div class="progreso-total">
+                        <h3>Progreso Total</h3>
+                        <div class="progress-circle-container">
+                            <svg class="progress-ring" width="200" height="200">
+                                <circle class="progress-ring-circle" stroke="#e5e7eb" stroke-width="15" fill="transparent" r="85" cx="100" cy="100"/>
+                                <circle id="progress-ring-fill" class="progress-ring-circle" stroke="#10b981" stroke-width="15" fill="transparent" r="85" cx="100" cy="100"/>
+                            </svg>
+                            <div class="progress-text">
+                                <span id="total-percentage">0</span>%
+                            </div>
+                        </div>
+                    </div>
+                    <div class="progreso-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">🧠</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-quiz">0/5</span>
+                                <span class="stat-label">Quiz</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎥</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-videos">0/3</span>
+                                <span class="stat-label">Videos</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">🎯</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-actividades">0/5</span>
+                                <span class="stat-label">Actividades</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">💡</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-simulador">0/3</span>
+                                <span class="stat-label">Casos</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📝</div>
+                            <div class="stat-info">
+                                <span class="stat-value" id="stat-libreta">0/3</span>
+                                <span class="stat-label">Libreta</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progreso-details">
+                    <h3>Detalle de Actividades</h3>
+                    <table class="progreso-table">
+                        <thead>
+                            <tr>
+                                <th>Categoría</th>
+                                <th>Actividad</th>
+                                <th>Estado</th>
+                                <th>Completado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="progreso-table-body">
+                            <!-- Generado dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="progreso-actions">
+                    <div class="student-name-input">
+                        <label for="student-name">Nombre del estudiante:</label>
+                        <input type="text" id="student-name" placeholder="Ingresa tu nombre completo">
+                    </div>
+                    <button class="btn btn-success btn-lg" onclick="descargarPDF()">
+                        📥 Descargar Progreso en PDF
+                    </button>
+                    <button class="btn btn-warning" onclick="confirmarReinicio()">
+                        🔄 Reiniciar Progreso
+                    </button>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="app-footer">
+            <p>&copy; 2025 - Ética Profesional - Licenciatura en Educación</p>
+        </footer>
+    </div>
+
+    <!-- JavaScript Unificado de app.js -->
+    <script>
+        // Utilidad para asegurar la compatibilidad de imágenes en entornos restringidos
+        // Se añadieron fallbacks a imágenes de placeholder en el HTML para las imágenes existentes.
+
+        // --- Firebase Setup (Necesario para usar localStorage como fallback) ---
+        // Aunque la aplicación original no usa Firebase, la plantilla sí lo requiere para la persistencia.
+        // Dado que este es un recurso para estudiantes (y no un multijugador), usaremos localStorage como fallback 
+        // y simularemos la carga de datos.
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'default-app-id';
+
+        // --- Definiciones de datos ---
+
+        // Diapositivas para el carrusel
+        const slides = [
+            { type: 'portada', title: 'Sesión 7: La Ética en la Vida Cotidiana', subtitle: 'Metas y Proyecto de Vida', icon: '✨' },
+            { type: 'contenido', icon: '⚖️', title: '1. Ética y Moral: La Diferencia', points: ['La Ética es la reflexión filosófica sobre el bien y el mal.', 'La Moral son las costumbres, normas y valores que guían la conducta.', 'La Ética es teórica; la Moral es práctica.'] },
+            { type: 'contenido', icon: '🧭', title: '2. ¿Qué es el Proyecto de Vida (PV)?', points: ['Es la dirección que una persona le da a su existencia.', 'Incluye metas personales, académicas, profesionales y sociales.', 'Un PV ético alinea las metas con los valores de integridad y respeto.'] },
+            { type: 'contenido', icon: '🎯', title: '3. Las Metas y el Sentido Ético', points: ['Las metas deben ser SMART (Específicas, Medibles, Alcanzables, Relevantes, con Tiempo).', 'Deben estar fundamentadas en el valor que aportan a uno mismo y a la sociedad.', 'Una meta no ética puede llevar al éxito a corto plazo, pero al fracaso moral a largo plazo.'] },
+            { type: 'contenido', icon: '💼', title: '4. El Código Deontológico', points: ['Conjunto de principios y reglas éticas que rigen una profesión (p. ej., la educación).', 'Asegura la confianza pública y la calidad del servicio profesional.', 'Es una guía para manejar dilemas éticos específicos de la profesión.'] },
+            { type: 'contenido', icon: '🤝', title: '5. Valores Clave en la Educación', points: ['Honestidad: En la evaluación y el trato con los estudiantes.', 'Responsabilidad: En la preparación de clases y el seguimiento.', 'Respeto: A la diversidad cultural, social y de aprendizaje.', 'Imparcialidad: Al aplicar normas y disciplina.'] },
+            { type: 'contenido', icon: '🚨', title: '6. Dilemas Éticos', points: ['Situaciones donde dos o más principios morales entran en conflicto.', 'No hay una solución totalmente correcta; requiere sopesar consecuencias.', 'Desarrollan el juicio moral y la capacidad de toma de decisiones.'] },
+            { type: 'contenido', icon: '📈', title: '7. Fases del Proyecto de Vida', points: ['Autoconocimiento: Identificar talentos y valores.', 'Visión: Definir el "quién quiero ser" (largo plazo).', 'Misión: Definir el "cómo lo lograré" (acciones diarias).', 'Planificación: Establecer metas a corto, mediano y largo plazo.'] },
+            { type: 'actividad', icon: '📝', title: '¡Es tu Turno de Reflexionar!', activity: 'Analiza tu principal meta profesional. ¿Qué valores éticos necesitas para alcanzarla con integridad? Escríbelo en tu libreta.' },
+            { type: 'cierre', title: '¡Has completado el Módulo de Fundamentos!', subtitle: 'Ahora continúa con los videos y las actividades interactivas.' }
+        ];
+
+        // Preguntas del Quiz (Sesión 1)
+        const quizQuestions = [
+            { question: "¿Qué busca la ética según el video?", options: ["Riqueza económica", "Felicidad y virtudes humanas", "Poder político"], answer: "Felicidad y virtudes humanas", topic: "Definición" },
+            { question: "¿Cuál es el riesgo de priorizar el éxito sin ética?", options: ["Bajo salario", "Soledad", "Corrupción y desconfianza"], answer: "Corrupción y desconfianza", topic: "Riesgos" },
+            { question: "La ética profesional se enfoca en...", options: ["El comportamiento individual de un día", "Las normas que rigen una profesión", "Los deseos personales"], answer: "Las normas que rigen una profesión", topic: "Aplicación" },
+            { question: "¿Qué valor es fundamental en la profesión docente según los principios éticos?", options: ["Competencia", "Responsabilidad", "Individualismo"], answer: "Responsabilidad", topic: "Valores" },
+            { question: "Un dilema ético es una situación donde:", options: ["Hay una sola opción correcta", "Dos valores morales entran en conflicto", "La ley es clara"], answer: "Dos valores morales entran en conflicto", topic: "Dilemas" }
+        ];
+
+        // Simulador de Casos (Sesión 4)
+        const casosEticos = [
+            {
+                id: 1,
+                title: "El Examen Filtrado",
+                context: "Eres profesor y descubres que el examen final se ha filtrado entre algunos alumnos. Un colega te sugiere ignorarlo, argumentando que 'siempre sucede algo así'. Tienes el poder de anularlo y crear uno nuevo.",
+                image: "https://placehold.co/400x250/F97316/FFFFFF?text=Examen+Filtrado",
+                question: "¿Qué acción toma priorizando la integridad y la equidad?",
+                options: [
+                    { text: "Ignorar la situación y aplicar el examen: proteges tu tiempo, pero perjudicas la equidad.", result: "negativa", consequence: "Consecuencia Negativa: Aplicas el examen. Los estudiantes honestos se sienten frustrados, el valor del curso se devalúa y la confianza en tu cátedra disminuye." },
+                    { text: "Anular el examen, informar a la dirección y crear uno nuevo: actúas con total transparencia y equidad.", result: "positiva", consequence: "Consecuencia Positiva: Aunque te lleva más trabajo, demuestras un alto nivel de integridad profesional. Preservas la equidad del proceso educativo y envías un mensaje claro contra la trampa." },
+                    { text: "Aplicar el examen, pero dar a todos la máxima calificación por las preguntas filtradas: una solución a medias.", result: "parcial", consequence: "Consecuencia Parcial: Es una solución rápida, pero no aborda la falta de honestidad de quienes lo filtraron. La evaluación pierde validez real." }
+                ],
+                statusId: 'status-simulador-1'
+            },
+            {
+                id: 2,
+                title: "El Alumno Sobresaliente y el Plagio",
+                context: "Tienes un alumno con calificaciones perfectas. En su trabajo final, detectas un párrafo plagiado directamente de una web. El plagio es menor, pero el reglamento es claro: cualquier plagio anula el trabajo.",
+                image: "https://placehold.co/400x250/10B981/FFFFFF?text=Alumno+Plagio",
+                question: "¿Qué haces, considerando el impacto en el alumno y las normas institucionales?",
+                options: [
+                    { text: "Lo ignoras y lo evalúas con la máxima nota: priorizas la trayectoria del alumno sobre la regla.", result: "negativa", consequence: "Consecuencia Negativa: El alumno aprende que puede violar las reglas menores sin consecuencias, lo que sienta un mal precedente ético para su futuro profesional." },
+                    { text: "Aplazas el trabajo y le pides que lo rehaga: das una segunda oportunidad, pero suavizas la norma.", result: "parcial", consequence: "Consecuencia Parcial: Es un camino de compasión, pero debilita la autoridad del código de conducta. Otros alumnos podrían argumentar por trato preferencial." },
+                    { text: "Aplicas la norma: anulas el trabajo y lo suspendes. Es tu deber como garante de la integridad académica.", result: "positiva", consequence: "Consecuencia Positiva: Mantienes la integridad de la institución y enseñas al alumno (a un costo alto) la seriedad del plagio, esencial para su desarrollo ético-profesional." }
+                ],
+                statusId: 'status-simulador-2'
+            },
+            {
+                id: 3,
+                title: "El Favor del Jefe",
+                context: "Tu jefe te pide que cambies la calificación de su sobrino, que reprobó la materia, bajo la promesa de un ascenso pronto. Sabes que el ascenso es inmerecido pero crucial para tu estabilidad económica.",
+                image: "https://placehold.co/400x250/2563EB/FFFFFF?text=Favor+del+Jefe",
+                question: "¿Cómo respondes a la solicitud, alineando tus principios con tus necesidades?",
+                options: [
+                    { text: "Aceptas, priorizando tu beneficio económico: pones tu interés personal sobre la ética profesional.", result: "negativa", consequence: "Consecuencia Negativa: Consigues el ascenso, pero has comprometido tu integridad. El riesgo de chantaje futuro y el daño a tu reputación son altos." },
+                    { text: "Lo rechazas diplomáticamente, documentando la petición: proteges tu integridad y te cubres legalmente.", result: "positiva", consequence: "Consecuencia Positiva: Mantienes tu valor profesional. Aunque pierdas el ascenso, demuestras que tu ética no es negociable, ganando respeto (o al menos tranquilidad)." },
+                    { text: "Sugieres un examen de recuperación para el sobrino: intentas conciliar la ética y el favor.", result: "parcial", consequence: "Consecuencia Parcial: Intentas evadir el dilema principal. Si el sobrino vuelve a reprobar, el jefe puede insistir y te habrás expuesto a la situación inicial sin resolverla." }
+                ],
+                statusId: 'status-simulador-3'
+            }
+        ];
+
+        // Definición de actividades para el Progreso
+        const todasLasActividades = [
+            { id: 'intro', category: 'Introducción', name: 'Quiz Introductorio', total: 1, completed: 0, badgeId: 'badge-intro' },
+            { id: 'video-1', category: 'Videos', name: 'Video 1: Ética cotidiana', total: 1, completed: 0, badgeId: 'badge-videos' },
+            { id: 'video-2', category: 'Videos', name: 'Video 2: Proyecto de vida', total: 1, completed: 0, badgeId: 'badge-videos' },
+            { id: 'video-3', category: 'Videos', name: 'Video 3: Ética profesional', total: 1, completed: 0, badgeId: 'badge-videos' },
+            { id: 'act-1', category: 'Actividades', name: 'Relaciona Valores', total: 1, completed: 0, badgeId: 'badge-actividades' },
+            { id: 'act-2', category: 'Actividades', name: 'Decisión Ética', total: 1, completed: 0, badgeId: 'badge-actividades' },
+            { id: 'act-3', category: 'Actividades', name: 'Verdadero o Falso', total: 1, completed: 0, badgeId: 'badge-actividades' },
+            { id: 'act-4', category: 'Actividades', name: 'Proyecto de Vida', total: 1, completed: 0, badgeId: 'badge-actividades' },
+            { id: 'act-5', category: 'Actividades', name: 'Memoria - Dilemas', total: 1, completed: 0, badgeId: 'badge-actividades' },
+            { id: 'simulador-1', category: 'Simulador', name: 'Caso 1: Examen Filtrado', total: 1, completed: 0, badgeId: 'badge-simulador' },
+            { id: 'simulador-2', category: 'Simulador', name: 'Caso 2: Plagio', total: 1, completed: 0, badgeId: 'badge-simulador' },
+            { id: 'simulador-3', category: 'Simulador', name: 'Caso 3: Favor del Jefe', total: 1, completed: 0, badgeId: 'badge-simulador' },
+            { id: 'libreta-1', category: 'Libreta', name: 'Reflexión Ética Personal', total: 1, completed: 0, badgeId: 'badge-libreta' },
+            { id: 'libreta-2', category: 'Libreta', name: 'Mapa Mental PV', total: 1, completed: 0, badgeId: 'badge-libreta' },
+            { id: 'libreta-3', category: 'Libreta', name: 'Mis Tres Valores', total: 1, completed: 0, badgeId: 'badge-libreta' }
+        ];
+
+
+        // --- Estado Global ---
+        let progreso = JSON.parse(localStorage.getItem(`progreso_${appId}`)) || {
+            intro_completed: false,
+            quiz_score: 0,
+            videos_vistos: { 1: false, 2: false, 3: false },
+            actividades_completadas: { 'act-1': false, 'act-2': false, 'act-3': false, 'act-4': false, 'act-5': false },
+            simulador_resueltos: { 1: false, 2: false, 3: false },
+            libreta_completada: { 1: false, 2: false, 3: false },
+            proyecto_vida: { corto: { personal: '', academico: '', profesional: '' }, mediano: { personal: '', academico: '', profesional: '' }, largo: { personal: '', academico: '', profesional: '' } },
+            quiz_respuestas: {},
+            tf_respuestas: {},
+            drag_drop_respuestas: {},
+            nombre_estudiante: ''
+        };
+
+        let currentSlide = 0;
+        let memoryGame = {
+            cards: [],
+            flippedCards: [],
+            matchedPairs: 0,
+            attempts: 0,
+            canFlip: true,
+            pairsToFind: 3
+        };
+        let quizState = { current: 0, score: 0, responses: {} };
+        let tfState = { responses: {} };
+        let dragDropState = { matches: 0 };
+        let proyectoVidaPlazo = 'corto';
+        let currentCaso = 0;
+
+        // --- Funciones de Utilidad ---
+
+        function guardarProgreso() {
+            localStorage.setItem(`progreso_${appId}`, JSON.stringify(progreso));
+            actualizarProgresoGlobal();
+        }
+
+        function cambiarTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(section => {
+                section.classList.remove('active');
+            });
+            document.getElementById(`tab-${tabId}`).classList.add('active');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.querySelector(`.tab-btn[data-tab="${tabId}"]`).classList.add('active');
+
+            // Inicializar el contenido de la pestaña si es necesario
+            if (tabId === 'actividades') {
+                inicializarDragDrop();
+                inicializarDecisionEtica();
+                inicializarVerdaderoFalso();
+                inicializarProyectoVida();
+                inicializarMemoryGame();
+            } else if (tabId === 'simulador') {
+                inicializarSimulador();
+            } else if (tabId === 'progreso') {
+                generarTablaProgreso();
+            }
+        }
+
+        // --- Lógica del Carrusel (Slideshow) ---
+
+        function generarDiapositivaHTML(slide, index) {
+            let html = `<div class="slide slide-${index}" data-index="${index}">`;
+            
+            if (slide.type === 'portada') {
+                html += `
+                    <div class="slide-portada">
+                        <span class="slide-icon">${slide.icon}</span>
+                        <h2>${slide.title}</h2>
+                        <p style="font-size:1.5rem; opacity:0.8;">${slide.subtitle}</p>
+                    </div>`;
+            } else if (slide.type === 'contenido') {
+                html += `
+                    <div class="slide-content">
+                        <div class="slide-header">
+                            <span class="slide-icon">${slide.icon}</span>
+                            <h2>${slide.title}</h2>
+                        </div>
+                        <ul class="slide-points">
+                            ${slide.points.map(p => `<li>${p}</li>`).join('')}
+                        </ul>
+                    </div>`;
+            } else if (slide.type === 'actividad') {
+                 html += `
+                    <div class="slide-content">
+                        <div class="slide-header">
+                            <span class="slide-icon">${slide.icon}</span>
+                            <h2>${slide.title}</h2>
+                        </div>
+                        <div class="slide-activity">
+                            ${slide.activity}
+                        </div>
+                        <button class="slide-final-btn" onclick="cambiarTab('libreta')">📝 Ir a la Libreta de Práctica</button>
+                    </div>`;
+            } else if (slide.type === 'cierre') {
+                 html += `
+                    <div class="slide-content slide-cierre">
+                        <h2>${slide.title}</h2>
+                        <p style="font-size:1.2rem; color:var(--color-primary);">${slide.subtitle}</p>
+                        <button class="slide-final-btn" onclick="cambiarTab('videos')">🎥 Continuar con Videos</button>
+                    </div>`;
+            }
+            
+            html += `</div>`;
+            return html;
+        }
+
+        function renderSlides() {
+            const container = document.getElementById('slide-container');
+            container.innerHTML = slides.map((slide, index) => generarDiapositivaHTML(slide, index)).join('');
+            
+            document.querySelector('.slide-0').classList.add('active');
+            actualizarControlesCarrusel();
+        }
+
+        function actualizarControlesCarrusel() {
+            const total = slides.length;
+            document.getElementById('slide-indicator').textContent = `${currentSlide + 1} / ${total}`;
+            document.getElementById('prev-slide').disabled = currentSlide === 0;
+            document.getElementById('next-slide').disabled = currentSlide === total - 1;
+        }
+
+        function cambiarDiapositiva(direccion) {
+            let nuevoSlide = currentSlide + direccion;
+
+            if (nuevoSlide >= 0 && nuevoSlide < slides.length) {
+                const oldSlideElement = document.querySelector(`.slide-${currentSlide}`);
+                const newSlideElement = document.querySelector(`.slide-${nuevoSlide}`);
+
+                if (oldSlideElement) {
+                    oldSlideElement.classList.add('slide-out');
+                    setTimeout(() => {
+                        oldSlideElement.classList.remove('active', 'slide-out');
+                        if (newSlideElement) {
+                            newSlideElement.classList.add('active');
+                            currentSlide = nuevoSlide;
+                            actualizarControlesCarrusel();
+                        }
+                    }, 300); // Duración de la animación slide-out
+                }
+            }
+        }
+
+        // --- Lógica de Quiz (Sesión 1) ---
+
+        function renderQuiz() {
+            const container = document.getElementById('quiz-container');
+            const resultsContainer = document.getElementById('quiz-results');
+            
+            // Ocultar resultados y mostrar quiz si no está completado
+            resultsContainer.style.display = 'none';
+
+            if (progreso.intro_completed) {
+                container.innerHTML = `<p class="feedback correct">✅ ¡Ya has completado este quiz con un puntaje de ${progreso.quiz_score}/${quizQuestions.length}!</p>
+                <button class="btn btn-secondary mt-8" onclick="reiniciarQuiz()">🔄 Reiniciar Quiz</button>`;
+                return;
+            }
+            
+            container.style.display = 'block';
+
+            if (quizState.current < quizQuestions.length) {
+                const q = quizQuestions[quizState.current];
+                const opcionesHtml = q.options.map((option, index) => `
+                    <label class="quiz-option" for="q${quizState.current}-opt${index}">
+                        <input type="radio" id="q${quizState.current}-opt${index}" name="q${quizState.current}" value="${option}" onchange="seleccionarRespuesta(this.value)">
+                        <span>${option}</span>
+                    </label>
+                `).join('');
+
+                container.innerHTML = `
+                    <div class="quiz-question">
+                        <h4>Pregunta ${quizState.current + 1} de ${quizQuestions.length}: ${q.question}</h4>
+                        <div class="quiz-options">
+                            ${opcionesHtml}
+                        </div>
+                        <div id="quiz-feedback" class="feedback" style="display:none;"></div>
+                    </div>
+                    <button class="btn btn-primary" id="quiz-submit" onclick="verificarQuiz()" disabled>Siguiente Pregunta →</button>
+                `;
+            } else {
+                mostrarResultadosQuiz();
+            }
+        }
+        
+        function seleccionarRespuesta(value) {
+            quizState.responses[quizState.current] = value;
+            document.getElementById('quiz-submit').disabled = false;
+        }
+
+        function verificarQuiz() {
+            const q = quizQuestions[quizState.current];
+            const respuestaSeleccionada = quizState.responses[quizState.current];
+            const feedbackElement = document.getElementById('quiz-feedback');
+            const submitButton = document.getElementById('quiz-submit');
+            
+            progreso.quiz_respuestas[quizState.current] = respuestaSeleccionada;
+
+            if (respuestaSeleccionada === q.answer) {
+                feedbackElement.innerHTML = `¡Correcto! La respuesta es **${q.answer}**.`;
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct');
+                quizState.score++;
+            } else {
+                feedbackElement.innerHTML = `¡Incorrecto! La respuesta correcta es **${q.answer}**.`;
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect');
+            }
+            
+            feedbackElement.style.display = 'block';
+            submitButton.disabled = true;
+
+            // Deshabilitar todas las opciones después de la selección
+            document.querySelectorAll(`input[name="q${quizState.current}"]`).forEach(input => {
+                input.disabled = true;
+                if (input.value === q.answer) {
+                    input.closest('.quiz-option').classList.add('correct');
+                } else if (input.checked) {
+                    input.closest('.quiz-option').classList.add('incorrect');
+                }
+            });
+
+            // Esperar un momento antes de pasar a la siguiente
+            setTimeout(() => {
+                quizState.current++;
+                if (quizState.current < quizQuestions.length) {
+                    renderQuiz();
+                } else {
+                    mostrarResultadosQuiz();
+                }
+            }, 1500);
+        }
+
+        function mostrarResultadosQuiz() {
+            const container = document.getElementById('quiz-container');
+            const resultsContainer = document.getElementById('quiz-results');
+
+            progreso.quiz_score = quizState.score;
+
+            document.getElementById('final-score').textContent = quizState.score;
+            let message = '';
+            if (quizState.score === quizQuestions.length) {
+                message = "¡Felicidades! Tienes una comprensión excelente de los fundamentos de la ética profesional.";
+            } else if (quizState.score >= quizQuestions.length / 2) {
+                message = "Buen trabajo. Revisa los conceptos principales para asegurar tu comprensión total.";
+            } else {
+                message = "Necesitas repasar el video y los conceptos. ¡Ánimo, puedes lograrlo!";
+            }
+            document.getElementById('results-message').textContent = message;
+
+            container.style.display = 'none';
+            resultsContainer.style.display = 'block';
+            
+            guardarProgreso();
+        }
+
+        function marcarIntroCompletada() {
+             progreso.intro_completed = true;
+             progreso.actividades_completadas['act-intro'] = true;
+             guardarProgreso();
+             renderQuiz(); // Actualiza la vista de la pestaña de introducción
+        }
+
+        function reiniciarQuiz() {
+            progreso.quiz_score = 0;
+            progreso.intro_completed = false;
+            quizState = { current: 0, score: 0, responses: {} };
+            guardarProgreso();
+            renderQuiz();
+        }
+
+        // --- Lógica de Videos (Sesión 2) ---
+
+        function abrirVideo(videoId) {
+            const modal = document.getElementById('video-modal');
+            const player = document.getElementById('video-player');
+            
+            player.innerHTML = `<iframe 
+                width="100%" 
+                height="500" 
+                src="https://www.youtube.com/embed/${videoId}?autoplay=1" 
+                frameborder="0" 
+                allow="autoplay; encrypted-media" 
+                allowfullscreen>
+            </iframe>`;
+            modal.classList.add('show');
+        }
+
+        function cerrarVideoModal() {
+            const modal = document.getElementById('video-modal');
+            const player = document.getElementById('video-player');
+            player.innerHTML = '';
+            modal.classList.remove('show');
+        }
+
+        function marcarVideoVisto(videoId) {
+            const checkbox = document.querySelector(`.video-card[data-video-id="${videoId}"] input[type="checkbox"]`);
+            progreso.videos_vistos[videoId] = checkbox.checked;
+            
+            // Si el video está marcado, marca la actividad como completada (temporalmente para progreso)
+            // No se usa en la tabla, pero ayuda a contar el total
+            progreso.actividades_completadas[`video-${videoId}`] = checkbox.checked;
+
+            guardarProgreso();
+            actualizarProgresoVideos();
+        }
+        
+        function actualizarProgresoVideos() {
+            const count = Object.values(progreso.videos_vistos).filter(v => v).length;
+            document.getElementById('videos-count').textContent = count;
+            document.getElementById('badge-videos').textContent = `${count}/3`;
+
+            // Actualizar el estado de los checkboxes al cargar/guardar
+            for (let i = 1; i <= 3; i++) {
+                const checkbox = document.querySelector(`.video-card[data-video-id="${i}"] input[type="checkbox"]`);
+                if (checkbox) {
+                    checkbox.checked = progreso.videos_vistos[i];
+                }
+            }
+        }
+
+
+        // --- Lógica de Drag & Drop (Actividad 1) ---
+
+        function inicializarDragDrop() {
+            const draggableItems = document.querySelectorAll('.draggable-item');
+            const dropAreas = document.querySelectorAll('.drop-area');
+
+            // Cargar estado
+            if (Object.keys(progreso.drag_drop_respuestas).length > 0) {
+                // Si ya hay respuestas, mover los elementos a sus lugares y marcar
+                const source = document.getElementById('valores-source');
+                source.innerHTML = ''; // Limpiar la columna de origen
+
+                dropAreas.forEach(area => {
+                    const correctValue = area.dataset.correct;
+                    const currentValue = progreso.drag_drop_respuestas[correctValue];
+                    
+                    area.innerHTML = ''; // Limpiar área
+
+                    if (currentValue) {
+                        const item = document.createElement('div');
+                        item.className = 'draggable-item';
+                        item.draggable = false;
+                        item.dataset.valor = currentValue;
+                        item.textContent = document.querySelector(`.draggable-item[data-valor="${currentValue}"]`)?.textContent || currentValue;
+                        area.appendChild(item);
+                        
+                        // Marcar correcto/incorrecto si ya se verificó
+                        if (progreso.actividades_completadas['act-1']) {
+                            if (currentValue === correctValue) {
+                                area.classList.add('correct');
+                                dragDropState.matches++;
+                            } else {
+                                area.classList.add('incorrect');
+                            }
+                        }
+                    } else {
+                        // Devolver item a la fuente si no está en el área de destino
+                        const item = document.createElement('div');
+                        item.className = 'draggable-item';
+                        item.draggable = true;
+                        item.dataset.valor = correctValue; // Asumimos que si no está en dropzone, debe volver a la fuente con su valor original
+                        item.textContent = document.querySelector(`.draggable-item[data-valor="${correctValue}"]`)?.textContent || correctValue;
+                        item.addEventListener('dragstart', dragStart);
+                        source.appendChild(item);
+                    }
+                });
+                actualizarEstadoActividad('act-1');
+            } else {
+                 // Reiniciar si no hay estado guardado
+                reiniciarDragDrop();
+            }
+
+            if (progreso.actividades_completadas['act-1']) {
+                document.querySelector('.drag-drop-container').style.pointerEvents = 'none';
+            }
+            
+            draggableItems.forEach(item => {
+                item.addEventListener('dragstart', dragStart);
+            });
+
+            dropAreas.forEach(area => {
+                area.addEventListener('dragover', dragOver);
+                area.addEventListener('drop', drop);
+                area.addEventListener('dragleave', dragLeave);
+            });
+        }
+
+        function dragStart(e) {
+            e.dataTransfer.setData('text/plain', e.target.dataset.valor);
+            setTimeout(() => {
+                e.target.classList.add('hidden');
+            }, 0);
+        }
+
+        function dragOver(e) {
+            e.preventDefault();
+            e.target.classList.add('drag-over');
+        }
+
+        function dragLeave(e) {
+            e.target.classList.remove('drag-over');
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            e.target.classList.remove('drag-over');
+            
+            const valor = e.dataTransfer.getData('text/plain');
+            const draggable = document.querySelector(`.draggable-item[data-valor="${valor}"]`);
+            
+            let dropArea = e.target;
+            if (!dropArea.classList.contains('drop-area')) {
+                dropArea = dropArea.closest('.drop-area');
+            }
+
+            if (dropArea && dropArea.children.length === 0) {
+                // Mover elemento
+                draggable.classList.remove('hidden');
+                dropArea.appendChild(draggable);
+                
+                // Guardar la respuesta temporal
+                const correctKey = dropArea.dataset.correct;
+                progreso.drag_drop_respuestas[correctKey] = valor;
+                guardarProgreso();
+            } else {
+                draggable.classList.remove('hidden'); // Restaurar si se arrastra a un lugar inválido
+            }
+        }
+
+        function verificarDragDrop() {
+            dragDropState.matches = 0;
+            let allFilled = true;
+            document.querySelectorAll('.drop-area').forEach(area => {
+                const item = area.querySelector('.draggable-item');
+                area.classList.remove('correct', 'incorrect');
+
+                if (item) {
+                    const correctValue = area.dataset.correct;
+                    const droppedValue = item.dataset.valor;
+                    
+                    if (droppedValue === correctValue) {
+                        area.classList.add('correct');
+                        dragDropState.matches++;
+                    } else {
+                        area.classList.add('incorrect');
+                    }
+                } else {
+                    allFilled = false;
+                }
+            });
+
+            if (!allFilled) {
+                alertModal("Atención", "Debes arrastrar un valor a cada situación antes de verificar.");
+                return;
+            }
+
+            if (dragDropState.matches === 4) {
+                progreso.actividades_completadas['act-1'] = true;
+                actualizarEstadoActividad('act-1');
+                document.querySelector('.drag-drop-container').style.pointerEvents = 'none';
+                alertModal("¡Actividad Completada!", "🎉 ¡Excelente! Todos los valores éticos han sido relacionados correctamente con sus situaciones.");
+            } else {
+                alertModal("Inténtalo de Nuevo", `Has acertado ${dragDropState.matches} de 4. Revisa los incorrectos e intenta de nuevo.`);
+            }
+            guardarProgreso();
+        }
+
+        function reiniciarDragDrop() {
+            progreso.drag_drop_respuestas = {};
+            progreso.actividades_completadas['act-1'] = false;
+            dragDropState.matches = 0;
+            document.querySelector('.drag-drop-container').style.pointerEvents = 'auto';
+
+            const source = document.getElementById('valores-source');
+            const dropAreas = document.querySelectorAll('.drop-area');
+            const allItems = document.querySelectorAll('.draggable-item');
+
+            // Mover todos los items de vuelta a la fuente y limpiar áreas
+            allItems.forEach(item => {
+                item.draggable = true;
+                item.classList.remove('hidden');
+                source.appendChild(item);
+            });
+            
+            dropAreas.forEach(area => {
+                area.classList.remove('correct', 'incorrect', 'drag-over');
+                area.innerHTML = '';
+            });
+
+            actualizarEstadoActividad('act-1');
+            guardarProgreso();
+        }
+
+        // --- Lógica de Decisión Ética (Actividad 2) ---
+
+        const decisionEticaEscenario = {
+            title: "Dilema: El Informe de Avance",
+            context: "Debes entregar un informe trimestral sobre el avance de tus alumnos, pero sabes que un informe totalmente honesto podría poner en riesgo un proyecto financiado por la dirección. Tienes la opción de 'suavizar' los datos o reportar la verdad tal cual.",
+            options: [
+                { id: 'optA', text: "Suavizar los datos: Aseguras la financiación, pero comprometes la verdad.", isCorrect: false, feedback: "Incorrecto. Aunque el fin (asegurar el proyecto) sea positivo, el medio (la mentira o la omisión) daña tu valor de honestidad y la credibilidad de la evaluación educativa." },
+                { id: 'optB', text: "Reportar la verdad con un plan de acción: Eres honesto, pero presentas una solución proactiva.", isCorrect: true, feedback: "¡Correcto! Esta opción equilibra la honestidad (valor ético fundamental) con la responsabilidad y el liderazgo. Proporcionar un plan de acción transforma el problema en una oportunidad." },
+                { id: 'optC', text: "Reportar la verdad y culpar a los alumnos: Eres honesto, pero evitas tu responsabilidad.", isCorrect: false, feedback: "Incorrecto. Reportar la verdad es ético, pero culpar a otros evade tu responsabilidad profesional como docente o coordinador de los resultados. Faltas al valor de la responsabilidad." }
+            ]
+        };
+
+        function inicializarDecisionEtica() {
+            const container = document.getElementById('decision-etica-container');
+            if (progreso.actividades_completadas['act-2']) {
+                 container.innerHTML = `<p class="feedback correct">✅ ¡Actividad completada! Tu elección fue: **${progreso.quiz_respuestas['act-2']}**</p>
+                    <button class="btn btn-secondary mt-8" onclick="reiniciarDecisionEtica()">🔄 Reiniciar Decisión Ética</button>`;
+                return;
+            }
+
+            const opcionesHtml = decisionEticaEscenario.options.map(opt => `
+                <div class="opcion-card" data-id="${opt.id}" onclick="seleccionarDecision('${opt.id}')">
+                    <p>${opt.text}</p>
+                </div>
+            `).join('');
+
+            container.innerHTML = `
+                <div class="escenario-card">
+                    <h4>${decisionEticaEscenario.title}</h4>
+                    <p>${decisionEticaEscenario.context}</p>
+                    <img src="https://placehold.co/400x200/F97316/FFFFFF?text=Informe+Ético" alt="Escenario de Informe" style="width:100%; max-width:500px; margin:1rem 0; border-radius:8px;">
+                </div>
+                <div class="opciones-grid" id="opciones-decision-etica">
+                    ${opcionesHtml}
+                </div>
+                <div id="decision-feedback" class="feedback" style="display:none;"></div>
+                <button class="btn btn-primary" id="btn-verificar-decision" onclick="verificarDecisionEtica()" disabled>Verificar Decisión</button>
+            `;
+            
+            // Si hay una respuesta guardada, marcarla
+            const savedOptionId = progreso.quiz_respuestas['act-2-selected'];
+            if (savedOptionId) {
+                const card = document.querySelector(`.opcion-card[data-id="${savedOptionId}"]`);
+                if (card) {
+                    card.classList.add('selected');
+                    document.getElementById('btn-verificar-decision').disabled = false;
+                }
+            }
+        }
+
+        function seleccionarDecision(id) {
+            document.querySelectorAll('.opcion-card').forEach(card => card.classList.remove('selected'));
+            document.querySelector(`.opcion-card[data-id="${id}"]`).classList.add('selected');
+            document.getElementById('btn-verificar-decision').disabled = false;
+            progreso.quiz_respuestas['act-2-selected'] = id;
+            guardarProgreso();
+        }
+
+        function verificarDecisionEtica() {
+            const selectedId = progreso.quiz_respuestas['act-2-selected'];
+            if (!selectedId) {
+                alertModal("Error", "Por favor, selecciona una opción.");
+                return;
+            }
+
+            const selectedOption = decisionEticaEscenario.options.find(opt => opt.id === selectedId);
+            const feedbackElement = document.getElementById('decision-feedback');
+            const opcionesContainer = document.getElementById('opciones-decision-etica');
+            
+            feedbackElement.textContent = selectedOption.feedback;
+            feedbackElement.style.display = 'block';
+
+            if (selectedOption.isCorrect) {
+                feedbackElement.classList.remove('incorrect');
+                feedbackElement.classList.add('correct');
+                
+                progreso.actividades_completadas['act-2'] = true;
+                progreso.quiz_respuestas['act-2'] = selectedOption.text;
+                actualizarEstadoActividad('act-2');
+                guardarProgreso();
+
+                opcionesContainer.style.pointerEvents = 'none';
+                document.getElementById('btn-verificar-decision').disabled = true;
+                alertModal("¡Decisión Correcta!", "Has tomado la decisión más ética. Tu integridad profesional está asegurada.");
+
+            } else {
+                feedbackElement.classList.remove('correct');
+                feedbackElement.classList.add('incorrect');
+                
+                alertModal("Decisión a Reflexionar", "Esta decisión tiene consecuencias negativas. Lee el feedback y considera por qué la opción B es la más completa desde la perspectiva ética.");
+            }
+        }
+
+        function reiniciarDecisionEtica() {
+            delete progreso.quiz_respuestas['act-2-selected'];
+            progreso.actividades_completadas['act-2'] = false;
+            actualizarEstadoActividad('act-2');
+            guardarProgreso();
+            inicializarDecisionEtica();
+        }
+
+        // --- Lógica de Verdadero o Falso (Actividad 3) ---
+
+        const verdaderoFalsoQuestions = [
+            { id: 1, text: "Un Proyecto de Vida ético solo se enfoca en metas profesionales.", answer: false },
+            { id: 2, text: "La Honestidad es el único valor ético relevante en la profesión de educación.", answer: false },
+            { id: 3, text: "Los dilemas éticos siempre tienen una solución obvia y fácil.", answer: false },
+            { id: 4, text: "La ética es una guía para iluminar nuestras decisiones diarias.", answer: true }
+        ];
+
+        function inicializarVerdaderoFalso() {
+            const container = document.getElementById('verdadero-falso-container');
+            const scoreElement = document.getElementById('tf-score');
+
+            let allAnswered = true;
+            let currentScore = 0;
+
+            const html = verdaderoFalsoQuestions.map(q => {
+                const savedAnswer = progreso.tf_respuestas[q.id];
+                const isAnswered = savedAnswer !== undefined;
+
+                if (!isAnswered) allAnswered = false;
+                if (isAnswered && savedAnswer === q.answer) currentScore++;
+
+                const disabled = progreso.actividades_completadas['act-3'] ? 'disabled' : '';
+
+                const classV = (isAnswered && savedAnswer === true) ? (q.answer ? 'correct' : 'incorrect') : (progreso.actividades_completadas['act-3'] && q.answer) ? 'correct' : '';
+                const classF = (isAnswered && savedAnswer === false) ? (q.answer === false ? 'correct' : 'incorrect') : (progreso.actividades_completadas['act-3'] && q.answer === false) ? 'correct' : '';
+
+                return `
+                    <div class="tf-item" data-id="${q.id}">
+                        <p>#${q.id}. ${q.text}</p>
+                        <div class="tf-buttons">
+                            <button class="tf-btn verdadero ${classV}" onclick="responderVerdaderoFalso(${q.id}, true)" ${disabled}>Verdadero</button>
+                            <button class="tf-btn falso ${classF}" onclick="responderVerdaderoFalso(${q.id}, false)" ${disabled}>Falso</button>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+
+            container.innerHTML = html;
+            scoreElement.textContent = currentScore;
+            
+            if (progreso.actividades_completadas['act-3']) {
+                document.querySelector('#verdadero-falso-container').style.pointerEvents = 'none';
+            }
+        }
+
+        function responderVerdaderoFalso(id, answer) {
+            const q = verdaderoFalsoQuestions.find(q => q.id === id);
+            if (!q) return;
+
+            progreso.tf_respuestas[id] = answer;
+            guardarProgreso();
+
+            const itemElement = document.querySelector(`.tf-item[data-id="${id}"]`);
+            const buttons = itemElement.querySelectorAll('.tf-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('correct', 'incorrect');
+                btn.disabled = true;
+
+                if (btn.textContent.toLowerCase().includes('verdadero') && answer === true) {
+                    btn.classList.add(q.answer === true ? 'correct' : 'incorrect');
+                } else if (btn.textContent.toLowerCase().includes('falso') && answer === false) {
+                    btn.classList.add(q.answer === false ? 'correct' : 'incorrect');
+                }
+                
+                // Mostrar la respuesta correcta si fue incorrecta
+                if (q.answer === true && btn.textContent.toLowerCase().includes('verdadero')) {
+                     btn.classList.add('correct');
+                } else if (q.answer === false && btn.textContent.toLowerCase().includes('falso')) {
+                     btn.classList.add('correct');
+                }
+            });
+
+            // Verificar si todas han sido respondidas
+            if (Object.keys(progreso.tf_respuestas).length === verdaderoFalsoQuestions.length) {
+                let finalScore = 0;
+                verdaderoFalsoQuestions.forEach(q => {
+                    if (progreso.tf_respuestas[q.id] === q.answer) {
+                        finalScore++;
+                    }
+                });
+                
+                document.getElementById('tf-score').textContent = finalScore;
+
+                if (finalScore === verdaderoFalsoQuestions.length) {
+                    progreso.actividades_completadas['act-3'] = true;
+                    actualizarEstadoActividad('act-3');
+                    alertModal("¡Excelente!", "🎉 ¡Has acertado todas las preguntas de Verdadero o Falso!");
+                    document.querySelector('#verdadero-falso-container').style.pointerEvents = 'none';
+                } else {
+                    alertModal("Casi lo logras", `Has acertado ${finalScore} de ${verdaderoFalsoQuestions.length}. Revisa las preguntas y los fundamentos.`);
+                }
+                guardarProgreso();
+            }
+        }
+
+        // --- Lógica de Proyecto de Vida (Actividad 4) ---
+        
+        const areas = ['personal', 'academico', 'profesional'];
+        const plazos = ['corto', 'mediano', 'largo'];
+
+        function inicializarProyectoVida() {
+            document.querySelectorAll('.plazo-btn').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    proyectoVidaPlazo = btn.dataset.plazo;
+                    document.querySelectorAll('.plazo-btn').forEach(b => b.classList.remove('active'));
+                    btn.classList.add('active');
+                    renderProyectoVidaAreas();
+                });
+            });
+            renderProyectoVidaAreas();
+
+            // Cargar nombre si existe
+            document.getElementById('student-name').value = progreso.nombre_estudiante || '';
+            document.getElementById('student-name').addEventListener('input', (e) => {
+                progreso.nombre_estudiante = e.target.value;
+                guardarProgreso();
+            });
+        }
+
+        function renderProyectoVidaAreas() {
+            const container = document.getElementById('proyecto-areas');
+            container.innerHTML = areas.map(area => {
+                const currentValue = progreso.proyecto_vida[proyectoVidaPlazo][area] || '';
+                const placeholder = `Define tu meta a ${proyectoVidaPlazo} plazo en el área ${area}...`;
+                
+                return `
+                    <div class="area-card">
+                        <h4>${area.charAt(0).toUpperCase() + area.slice(1)}</h4>
+                        <textarea 
+                            data-plazo="${proyectoVidaPlazo}" 
+                            data-area="${area}" 
+                            placeholder="${placeholder}"
+                            oninput="guardarTextoProyectoVida(this)"
+                        >${currentValue}</textarea>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        function guardarTextoProyectoVida(textarea) {
+            const plazo = textarea.dataset.plazo;
+            const area = textarea.dataset.area;
+            progreso.proyecto_vida[plazo][area] = textarea.value;
+            guardarProgreso();
+        }
+
+        function guardarProyectoVida() {
+            let allFilled = true;
+            plazos.forEach(plazo => {
+                areas.forEach(area => {
+                    if (!progreso.proyecto_vida[plazo][area]) {
+                        allFilled = false;
+                    }
+                });
+            });
+
+            if (allFilled) {
+                progreso.actividades_completadas['act-4'] = true;
+                actualizarEstadoActividad('act-4');
+                alertModal("¡Proyecto Guardado!", "El borrador de tu Proyecto de Vida ha sido guardado. Recuerda que es un documento en constante evolución.");
+            } else {
+                // Temporalmente lo marcamos como completado si tiene algo en la pestaña actual para evitar frustración
+                let currentPlazoFilled = areas.every(area => progreso.proyecto_vida[proyectoVidaPlazo][area]);
+                if (currentPlazoFilled) {
+                    progreso.actividades_completadas['act-4'] = true; // Se marca si la pestaña actual está llena
+                    actualizarEstadoActividad('act-4');
+                    alertModal("Borrador Guardado", "Se ha guardado tu borrador de Proyecto de Vida y marcado la actividad como completada. Asegúrate de llenar los demás plazos en tu libreta de apuntes.");
+                } else {
+                    alertModal("Incompleto", "Por favor, define al menos una meta en las tres áreas del plazo actual antes de guardar.");
+                }
+            }
+            guardarProgreso();
+        }
+
+        // --- Lógica de Memoria (Actividad 5) ---
+
+        function inicializarMemoryGame() {
+            const pairs = [
+                { value: "Honestidad" }, { value: "Verdad" },
+                { value: "Responsabilidad" }, { value: "Compromiso" },
+                { value: "Respeto" }, { value: "Tolerancia" }
+            ];
+            
+            // Duplicar y barajar
+            const cards = [...pairs, ...pairs].map((p, index) => ({
+                id: index,
+                value: p.value,
+                isFlipped: false,
+                isMatched: false
+            }));
+
+            // Barajar el array (Fisher-Yates)
+            for (let i = cards.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [cards[i], cards[j]] = [cards[j], cards[i]];
+            }
+
+            memoryGame.cards = cards;
+            memoryGame.flippedCards = [];
+            memoryGame.matchedPairs = 0;
+            memoryGame.attempts = 0;
+            
+            const savedState = JSON.parse(localStorage.getItem(`memory_${appId}`));
+            if (savedState && !progreso.actividades_completadas['act-5']) {
+                memoryGame = savedState;
+                memoryGame.cards.forEach(card => card.isFlipped = false); // Para que no se muestren al cargar
+            } else if (progreso.actividades_completadas['act-5']) {
+                 memoryGame.cards.forEach(card => card.isMatched = true);
+                 memoryGame.matchedPairs = memoryGame.pairsToFind;
+            }
+
+            renderMemoryGame();
+        }
+        
+        function guardarMemoryState() {
+             localStorage.setItem(`memory_${appId}`, JSON.stringify({ 
+                cards: memoryGame.cards.map(c => ({ id: c.id, value: c.value, isMatched: c.isMatched })),
+                matchedPairs: memoryGame.matchedPairs,
+                attempts: memoryGame.attempts,
+                pairsToFind: memoryGame.pairsToFind
+             }));
+        }
+
+        function renderMemoryGame() {
+            const grid = document.getElementById('memory-game');
+            grid.innerHTML = memoryGame.cards.map(card => `
+                <div 
+                    class="memory-card ${card.isMatched ? 'matched' : (card.isFlipped ? 'flipped' : '')}"
+                    data-id="${card.id}" 
+                    data-value="${card.value}"
+                    onclick="flipCard(${card.id})"
+                >
+                    ${card.isFlipped || card.isMatched ? card.value : '❓'}
+                </div>
+            `).join('');
+
+            document.getElementById('memory-attempts').textContent = memoryGame.attempts;
+            document.getElementById('memory-pairs').textContent = memoryGame.matchedPairs;
+        }
+
+        function flipCard(id) {
+            if (!memoryGame.canFlip || progreso.actividades_completadas['act-5']) return;
+
+            const cardIndex = memoryGame.cards.findIndex(c => c.id === id);
+            const card = memoryGame.cards[cardIndex];
+
+            if (card.isFlipped || card.isMatched) return;
+
+            card.isFlipped = true;
+            memoryGame.flippedCards.push(card);
+            renderMemoryGame();
+
+            if (memoryGame.flippedCards.length === 2) {
+                memoryGame.canFlip = false;
+                memoryGame.attempts++;
+                checkForMatch();
+            }
+        }
+
+        function checkForMatch() {
+            const [card1, card2] = memoryGame.flippedCards;
+
+            if (card1.value === card2.value) {
+                // Match
+                card1.isMatched = true;
+                card2.isMatched = true;
+                memoryGame.matchedPairs++;
+                memoryGame.flippedCards = [];
+                memoryGame.canFlip = true;
+                
+                if (memoryGame.matchedPairs === memoryGame.pairsToFind) {
+                    progreso.actividades_completadas['act-5'] = true;
+                    actualizarEstadoActividad('act-5');
+                    alertModal("¡Juego Completado!", `🎉 ¡Felicidades! Encontraste todos los pares en ${memoryGame.attempts} intentos.`);
+                    document.getElementById('memory-game').style.pointerEvents = 'none';
+                }
+                guardarMemoryState();
+            } else {
+                // No match
+                setTimeout(() => {
+                    card1.isFlipped = false;
+                    card2.isFlipped = false;
+                    memoryGame.flippedCards = [];
+                    memoryGame.canFlip = true;
+                    renderMemoryGame();
+                }, 1000);
+            }
+            renderMemoryGame();
+        }
+
+        // --- Lógica de Simulador (Sesión 4) ---
+
+        function inicializarSimulador() {
+            const container = document.getElementById('simulador-container');
+            container.innerHTML = casosEticos.map((caso, index) => {
+                const isResolved = progreso.simulador_resueltos[caso.id];
+                const status = isResolved ? 'completada' : 'pendiente';
+                const statusText = isResolved ? 'Resuelto' : 'Pendiente';
+                const savedResult = progreso.quiz_respuestas[`simulador-${caso.id}-result`];
+                
+                const currentCasoHtml = `
+                    <div class="caso-card" data-id="${caso.id}">
+                        <div class="caso-header">
+                            <h3>Caso ${caso.id}: ${caso.title}</h3>
+                            <span class="activity-status ${status}" id="status-simulador-${caso.id}">${statusText}</span>
+                        </div>
+                        <div class="caso-contexto">
+                            <p>${caso.context}</p>
+                            <img src="${caso.image}" alt="Contexto del caso ${caso.id}" onerror="this.onerror=null; this.src='https://placehold.co/400x250/F97316/FFFFFF?text=Caso+Ético';" style="width:100%; max-width:400px; height:auto; display:block; margin: 1rem auto;">
+                            <p style="font-weight:600; margin-top:1.5rem;">Pregunta: ${caso.question}</p>
+                        </div>
+                        
+                        <div class="caso-opciones" data-caso="${caso.id}" style="${isResolved ? 'pointer-events: none;' : ''}">
+                            ${caso.options.map((opt, optIndex) => `
+                                <div class="caso-opcion" 
+                                    data-opt-id="${optIndex}" 
+                                    onclick="seleccionarOpcionSimulador(${caso.id}, ${optIndex})"
+                                    style="${isResolved && savedResult === opt.result ? 'border-color: var(--color-primary); background-color: var(--color-bg-1);' : ''}">
+                                    ${opt.text}
+                                </div>
+                            `).join('')}
+                        </div>
+                        
+                        <div id="consecuencia-${caso.id}">
+                            ${isResolved ? `<div class="caso-consecuencia ${savedResult === 'positiva' ? 'positiva' : savedResult === 'negativa' ? 'negativa' : 'parcial'}">
+                                <h4>Resultado de tu Decisión:</h4>
+                                <p>${caso.options.find(opt => opt.result === savedResult).consequence}</p>
+                                <button class="btn btn-secondary mt-8" onclick="reiniciarCasoSimulador(${caso.id})">🔄 Reiniciar Caso</button>
+                            </div>` : ''}
+                        </div>
+                    </div>
+                `;
+                return currentCasoHtml;
+            }).join('');
+        }
+
+        function seleccionarOpcionSimulador(casoId, opcionIndex) {
+            const caso = casosEticos.find(c => c.id === casoId);
+            const opcion = caso.options[opcionIndex];
+            const opcionesContainer = document.querySelector(`.caso-opciones[data-caso="${casoId}"]`);
+            const consecuenciaContainer = document.getElementById(`consecuencia-${casoId}`);
+
+            opcionesContainer.style.pointerEvents = 'none';
+
+            // Marcar la opción seleccionada
+            opcionesContainer.querySelectorAll('.caso-opcion').forEach((opt, index) => {
+                opt.style.borderColor = 'var(--color-border)';
+                opt.style.backgroundColor = 'var(--color-surface)';
+                if (index === opcionIndex) {
+                    opt.style.borderColor = 'var(--color-primary)';
+                    opt.style.backgroundColor = 'var(--color-bg-1)';
+                }
+            });
+
+            // Mostrar la consecuencia
+            consecuenciaContainer.innerHTML = `
+                <div class="caso-consecuencia ${opcion.result === 'positiva' ? 'positiva' : opcion.result === 'negativa' ? 'negativa' : 'parcial'}">
+                    <h4>Resultado de tu Decisión:</h4>
+                    <p>${opcion.consequence}</p>
+                    <button class="btn btn-secondary mt-8" onclick="reiniciarCasoSimulador(${casoId})">🔄 Reiniciar Caso</button>
+                </div>
+            `;
+
+            progreso.simulador_resueltos[casoId] = true;
+            progreso.quiz_respuestas[`simulador-${casoId}-result`] = opcion.result;
+            progreso.quiz_respuestas[`simulador-${casoId}-text`] = opcion.text;
+            actualizarEstadoActividad(`simulador-${casoId}`);
+            guardarProgreso();
+        }
+
+        function reiniciarCasoSimulador(casoId) {
+            delete progreso.simulador_resueltos[casoId];
+            delete progreso.quiz_respuestas[`simulador-${casoId}-result`];
+            delete progreso.quiz_respuestas[`simulador-${casoId}-text`];
+            progreso.actividades_completadas[`simulador-${casoId}`] = false;
+            actualizarEstadoActividad(`simulador-${casoId}`);
+            guardarProgreso();
+            inicializarSimulador(); // Volver a renderizar
+        }
+
+        // --- Lógica de Libreta (Sesión 5) ---
+
+        function marcarLibretaCompletada(actId) {
+            const checkbox = document.querySelector(`.libreta-card input[type="checkbox"][onchange*="${actId}"]`);
+            progreso.libreta_completada[actId] = checkbox.checked;
+            
+            progreso.actividades_completadas[`libreta-${actId}`] = checkbox.checked;
+
+            actualizarProgresoLibreta();
+            guardarProgreso();
+        }
+
+        function actualizarProgresoLibreta() {
+            const count = Object.values(progreso.libreta_completada).filter(v => v).length;
+            document.getElementById('libreta-count').textContent = count;
+            document.getElementById('badge-libreta').textContent = `${count}/3`;
+
+            // Actualizar el estado de los checkboxes al cargar/guardar
+            for (let i = 1; i <= 3; i++) {
+                const checkbox = document.querySelector(`.libreta-card input[type="checkbox"][onchange*="${i}"]`);
+                if (checkbox) {
+                    checkbox.checked = progreso.libreta_completada[i];
+                }
+            }
+        }
+
+
+        // --- Lógica de Progreso General (Sesión 6) ---
+
+        function actualizarProgresoGlobal() {
+            // Actualizar totales de actividades
+            let totalCompleted = 0;
+            let totalActivities = todasLasActividades.length;
+
+            todasLasActividades.forEach(act => {
+                let isCompleted = false;
+                if (act.id === 'intro') {
+                    isCompleted = progreso.intro_completed;
+                } else if (act.id.startsWith('video-')) {
+                    const videoId = act.id.split('-')[1];
+                    isCompleted = progreso.videos_vistos[videoId] || false;
+                } else if (act.id.startsWith('act-')) {
+                    isCompleted = progreso.actividades_completadas[act.id] || false;
+                } else if (act.id.startsWith('simulador-')) {
+                    const casoId = act.id.split('-')[1];
+                    isCompleted = progreso.simulador_resueltos[casoId] || false;
+                } else if (act.id.startsWith('libreta-')) {
+                    const libretaId = act.id.split('-')[1];
+                    isCompleted = progreso.libreta_completada[libretaId] || false;
+                }
+                
+                if (isCompleted) {
+                    totalCompleted++;
+                }
+            });
+
+            // Recalcular métricas de badges/stats
+            const quizCompleted = progreso.intro_completed ? 1 : 0;
+            const videosCount = Object.values(progreso.videos_vistos).filter(v => v).length;
+            const actCount = Object.values(progreso.actividades_completadas).filter(v => v).length;
+            const simuladorCount = Object.values(progreso.simulador_resueltos).filter(v => v).length;
+            const libretaCount = Object.values(progreso.libreta_completada).filter(v => v).length;
+
+            // Actualizar Badges
+            document.getElementById('badge-intro').textContent = `${quizCompleted}/1`;
+            document.getElementById('badge-videos').textContent = `${videosCount}/3`;
+            document.getElementById('badge-actividades').textContent = `${Object.values(progreso.actividades_completadas).filter(c => c).length}/5`;
+            document.getElementById('badge-simulador').textContent = `${simuladorCount}/3`;
+            document.getElementById('badge-libreta').textContent = `${libretaCount}/3`;
+
+            // Actualizar Stats
+            document.getElementById('stat-quiz').textContent = `${quizCompleted}/1`;
+            document.getElementById('stat-videos').textContent = `${videosCount}/3`;
+            document.getElementById('stat-actividades').textContent = `${Object.values(progreso.actividades_completadas).filter(c => c).length}/5`;
+            document.getElementById('stat-simulador').textContent = `${simuladorCount}/3`;
+            document.getElementById('stat-libreta').textContent = `${libretaCount}/3`;
+            
+            // Actualizar el porcentaje total
+            const percentage = totalActivities > 0 ? Math.round((totalCompleted / totalActivities) * 100) : 0;
+            document.getElementById('total-percentage').textContent = percentage;
+            
+            // Actualizar el círculo de progreso
+            const radius = 85;
+            const circumference = 2 * Math.PI * radius;
+            const offset = circumference - (percentage / 100) * circumference;
+            const progressRingFill = document.getElementById('progress-ring-fill');
+            if (progressRingFill) {
+                progressRingFill.style.strokeDasharray = circumference;
+                progressRingFill.style.strokeDashoffset = offset;
+            }
+
+            // Actualizar campo de nombre
+            const studentNameInput = document.getElementById('student-name');
+            if (studentNameInput) {
+                studentNameInput.value = progreso.nombre_estudiante || '';
+            }
+        }
+
+        function generarTablaProgreso() {
+            const tableBody = document.getElementById('progreso-table-body');
+            let rowsHtml = '';
+            
+            const tableData = [
+                { category: 'Introducción', activities: [{ id: 'intro', name: 'Quiz Introductorio', check: progreso.intro_completed }] },
+                { category: 'Videos', activities: [
+                    { id: 'video-1', name: 'Video 1: Ética cotidiana', check: progreso.videos_vistos[1] },
+                    { id: 'video-2', name: 'Video 2: Proyecto de vida', check: progreso.videos_vistos[2] },
+                    { id: 'video-3', name: 'Video 3: Ética profesional', check: progreso.videos_vistos[3] }
+                ]},
+                { category: 'Actividades', activities: [
+                    { id: 'act-1', name: '1. Relaciona Valores', check: progreso.actividades_completadas['act-1'] },
+                    { id: 'act-2', name: '2. Decisión Ética', check: progreso.actividades_completadas['act-2'] },
+                    { id: 'act-3', name: '3. Verdadero o Falso', check: progreso.actividades_completadas['act-3'] },
+                    { id: 'act-4', name: '4. Proyecto de Vida (Borrador)', check: progreso.actividades_completadas['act-4'] },
+                    { id: 'act-5', name: '5. Memoria - Dilemas', check: progreso.actividades_completadas['act-5'] }
+                ]},
+                { category: 'Simulador', activities: [
+                    { id: 'simulador-1', name: 'Caso 1: Examen Filtrado', check: progreso.simulador_resueltos[1] },
+                    { id: 'simulador-2', name: 'Caso 2: Plagio', check: progreso.simulador_resueltos[2] },
+                    { id: 'simulador-3', name: 'Caso 3: Favor del Jefe', check: progreso.simulador_resueltos[3] }
+                ]},
+                { category: 'Libreta', activities: [
+                    { id: 'libreta-1', name: '1. Reflexión Ética Personal', check: progreso.libreta_completada[1] },
+                    { id: 'libreta-2', name: '2. Mapa Mental PV', check: progreso.libreta_completada[2] },
+                    { id: 'libreta-3', name: '3. Mis Tres Valores', check: progreso.libreta_completada[3] }
+                ]}
+            ];
+
+            tableData.forEach(cat => {
+                let isFirst = true;
+                cat.activities.forEach(act => {
+                    const statusClass = act.check ? 'completado' : 'pendiente';
+                    const statusText = act.check ? 'Completado' : 'Pendiente';
+                    const score = act.check ? '1/1' : '0/1';
+                    
+                    rowsHtml += `
+                        <tr>
+                            ${isFirst ? `<td rowspan="${cat.activities.length}">${cat.category}</td>` : ''}
+                            <td>${act.name}</td>
+                            <td><span class="status-badge ${statusClass}">${statusText}</span></td>
+                            <td>${score}</td>
+                        </tr>
+                    `;
+                    isFirst = false;
+                });
+            });
+
+            tableBody.innerHTML = rowsHtml;
+        }
+
+        function actualizarEstadoActividad(actId) {
+            const element = document.getElementById(`status-${actId}`);
+            if (element) {
+                if (progreso.actividades_completadas[actId]) {
+                    element.classList.remove('pendiente');
+                    element.classList.add('completada');
+                    element.textContent = 'Completada';
+                } else {
+                    element.classList.remove('completada');
+                    element.classList.add('pendiente');
+                    element.textContent = 'Pendiente';
+                }
+            }
+            actualizarProgresoGlobal();
+        }
+
+
+        function confirmarReinicio() {
+            // Usamos un modal simulado en lugar de window.confirm
+            const html = `
+                <p>¿Estás seguro de que quieres **reiniciar todo tu progreso** en esta sesión? Esta acción no se puede deshacer.</p>
+                <div style="display:flex; justify-content:center; gap:1rem; margin-top:2rem;">
+                    <button class="btn btn-secondary" onclick="cerrarAlertModal()">Cancelar</button>
+                    <button class="btn btn-warning" onclick="reiniciarProgresoTotal()">Sí, Reiniciar</button>
+                </div>
+            `;
+            alertModal("Reiniciar Progreso", html, true);
+        }
+
+        function reiniciarProgresoTotal() {
+            localStorage.removeItem(`progreso_${appId}`);
+            localStorage.removeItem(`memory_${appId}`);
+            
+            progreso = {
+                intro_completed: false,
+                quiz_score: 0,
+                videos_vistos: { 1: false, 2: false, 3: false },
+                actividades_completadas: { 'act-1': false, 'act-2': false, 'act-3': false, 'act-4': false, 'act-5': false, 'simulador-1': false, 'simulador-2': false, 'simulador-3': false, 'libreta-1': false, 'libreta-2': false, 'libreta-3': false },
+                simulador_resueltos: { 1: false, 2: false, 3: false },
+                libreta_completada: { 1: false, 2: false, 3: false },
+                proyecto_vida: { corto: { personal: '', academico: '', profesional: '' }, mediano: { personal: '', academico: '', profesional: '' }, largo: { personal: '', academico: '', profesional: '' } },
+                quiz_respuestas: {},
+                tf_respuestas: {},
+                drag_drop_respuestas: {},
+                nombre_estudiante: ''
+            };
+            
+            // Resetear estados temporales de actividades
+            quizState = { current: 0, score: 0, responses: {} };
+            tfState = { responses: {} };
+            memoryGame.cards = []; // Forzar reinicio de memoria
+            
+            cerrarAlertModal();
+            location.reload(); // Recargar la página para limpiar el estado de todas las pestañas
+        }
+
+
+        // --- Generación de PDF (Usando jsPDF) ---
+        function descargarPDF() {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+            const margin = 20;
+            let y = margin;
+            const lineHeight = 8;
+            const maxLineWidth = 170; // Ancho máximo de línea
+
+            // Configuración
+            doc.setFont('Inter', 'bold');
+            doc.setFontSize(18);
+            doc.text("Reporte de Progreso - Ética Profesional", margin, y);
+            y += lineHeight * 2;
+
+            // Info del Estudiante
+            doc.setFontSize(14);
+            doc.text(`Estudiante: ${progreso.nombre_estudiante || 'Nombre no ingresado'}`, margin, y);
+            y += lineHeight;
+            
+            const totalActivities = todasLasActividades.length;
+            const totalCompleted = todasLasActividades.filter(act => {
+                let isCompleted = false;
+                if (act.id === 'intro') {
+                    isCompleted = progreso.intro_completed;
+                } else if (act.id.startsWith('video-')) {
+                    const videoId = act.id.split('-')[1];
+                    isCompleted = progreso.videos_vistos[videoId] || false;
+                } else if (act.id.startsWith('act-')) {
+                    isCompleted = progreso.actividades_completadas[act.id] || false;
+                } else if (act.id.startsWith('simulador-')) {
+                    const casoId = act.id.split('-')[1];
+                    isCompleted = progreso.simulador_resueltos[casoId] || false;
+                } else if (act.id.startsWith('libreta-')) {
+                    const libretaId = act.id.split('-')[1];
+                    isCompleted = progreso.libreta_completada[libretaId] || false;
+                }
+                return isCompleted;
+            }).length;
+
+            const percentage = totalActivities > 0 ? Math.round((totalCompleted / totalActivities) * 100) : 0;
+            doc.text(`Progreso Total: ${percentage}% (${totalCompleted}/${totalActivities} actividades)`, margin, y);
+            y += lineHeight * 2;
+
+            // Detalles de Actividades
+            doc.setFontSize(16);
+            doc.text("Detalle de Actividades:", margin, y);
+            y += lineHeight;
+            
+            doc.setFontSize(10);
+            const data = [];
+            let currentCategory = '';
+            
+            const tableData = [
+                { category: 'Introducción', activities: [{ id: 'intro', name: 'Quiz Introductorio', check: progreso.intro_completed, info: `Puntaje: ${progreso.quiz_score}/${quizQuestions.length}` }] },
+                { category: 'Videos', activities: [
+                    { id: 'video-1', name: 'Video 1: Ética cotidiana', check: progreso.videos_vistos[1] },
+                    { id: 'video-2', name: 'Video 2: Proyecto de vida', check: progreso.videos_vistos[2] },
+                    { id: 'video-3', name: 'Video 3: Ética profesional', check: progreso.videos_vistos[3] }
+                ]},
+                { category: 'Actividades', activities: [
+                    { id: 'act-1', name: '1. Relaciona Valores', check: progreso.actividades_completadas['act-1'] },
+                    { id: 'act-2', name: '2. Decisión Ética', check: progreso.actividades_completadas['act-2'] },
+                    { id: 'act-3', name: '3. Verdadero o Falso', check: progreso.actividades_completadas['act-3'] },
+                    { id: 'act-4', name: '4. Proyecto de Vida (Borrador)', check: progreso.actividades_completadas['act-4'] },
+                    { id: 'act-5', name: '5. Memoria - Dilemas', check: progreso.actividades_completadas['act-5'], info: `Intentos: ${JSON.parse(localStorage.getItem(`memory_${appId}`))?.attempts || 0}` }
+                ]},
+                { category: 'Simulador', activities: [
+                    { id: 'simulador-1', name: 'Caso 1: Examen Filtrado', check: progreso.simulador_resueltos[1], info: progreso.quiz_respuestas['simulador-1-text'] ? `Decisión: ${progreso.quiz_respuestas['simulador-1-text'].substring(0, 50)}...` : '' },
+                    { id: 'simulador-2', name: 'Caso 2: Plagio', check: progreso.simulador_resueltos[2], info: progreso.quiz_respuestas['simulador-2-text'] ? `Decisión: ${progreso.quiz_respuestas['simulador-2-text'].substring(0, 50)}...` : '' },
+                    { id: 'simulador-3', name: 'Caso 3: Favor del Jefe', check: progreso.simulador_resueltos[3], info: progreso.quiz_respuestas['simulador-3-text'] ? `Decisión: ${progreso.quiz_respuestas['simulador-3-text'].substring(0, 50)}...` : '' }
+                ]},
+                { category: 'Libreta', activities: [
+                    { id: 'libreta-1', name: '1. Reflexión Ética Personal', check: progreso.libreta_completada[1] },
+                    { id: 'libreta-2', name: '2. Mapa Mental PV', check: progreso.libreta_completada[2] },
+                    { id: 'libreta-3', name: '3. Mis Tres Valores', check: progreso.libreta_completada[3] }
+                ]}
+            ];
+
+            tableData.forEach(cat => {
+                cat.activities.forEach(act => {
+                    const status = act.check ? 'Completado (1/1)' : 'Pendiente (0/1)';
+                    const info = act.info ? act.info : '';
+                    data.push([act.name, status, info]);
+                });
+            });
+
+            doc.autoTable({
+                startY: y,
+                head: [['Actividad', 'Estado', 'Detalle']],
+                body: data,
+                theme: 'striped',
+                headStyles: { fillColor: [33, 128, 141], textColor: [255, 255, 255] },
+                alternateRowStyles: { fillColor: [245, 245, 245] },
+                styles: { cellPadding: 2, fontSize: 10, overflow: 'linebreak' }
+            });
+            
+            y = doc.autoTable.previous.finalY + lineHeight * 2;
+
+            // Sección de Proyecto de Vida (Texto libre)
+            doc.setFontSize(16);
+            doc.text("Resumen de Borrador de Proyecto de Vida:", margin, y);
+            y += lineHeight;
+
+            doc.setFontSize(10);
+            plazos.forEach(plazo => {
+                doc.setFont('Inter', 'bold');
+                doc.text(`- ${plazo.charAt(0).toUpperCase() + plazo.slice(1)} Plazo:`, margin, y);
+                y += lineHeight;
+
+                doc.setFont('Inter', 'normal');
+                areas.forEach(area => {
+                    const text = `${area.charAt(0).toUpperCase() + area.slice(1)}: ${progreso.proyecto_vida[plazo][area] || 'No definido'}`;
+                    const splitText = doc.splitTextToSize(text, maxLineWidth);
+                    doc.text(splitText, margin + 5, y);
+                    y += (splitText.length * 4) + 2; // Ajuste de línea para texto multilinea
+
+                    if (y > 280) { // Si llega cerca del final de la página
+                        doc.addPage();
+                        y = margin;
+                    }
+                });
+                y += lineHeight / 2;
+            });
+            
+            doc.save(`Progreso_Etica_Sesion7_${progreso.nombre_estudiante.replace(/\s/g, '_') || 'Alumno'}.pdf`);
+        }
+        
+        // --- Modal Simulado (Para reemplazar alert/confirm) ---
+
+        function alertModal(title, message, isConfirm = false) {
+            let modal = document.getElementById('custom-alert-modal');
+            if (!modal) {
+                modal = document.createElement('div');
+                modal.id = 'custom-alert-modal';
+                modal.className = 'modal';
+                modal.innerHTML = `
+                    <div class="modal-content" style="max-width:400px; text-align:center;">
+                        <span class="close-modal" onclick="cerrarAlertModal()">&times;</span>
+                        <h3 id="alert-title" style="color:var(--color-primary); margin-bottom:1rem;"></h3>
+                        <div id="alert-message"></div>
+                    </div>
+                `;
+                document.body.appendChild(modal);
+            }
+            
+            document.getElementById('alert-title').textContent = title;
+            document.getElementById('alert-message').innerHTML = message;
+            
+            // Si es confirmación, el mensaje ya debe contener los botones (como en confirmarReinicio)
+            if (!isConfirm) {
+                 document.getElementById('alert-message').innerHTML += `<button class="btn btn-primary mt-8" onclick="cerrarAlertModal()">Aceptar</button>`;
+            }
+
+            modal.classList.add('show');
+        }
+
+        function cerrarAlertModal() {
+            const modal = document.getElementById('custom-alert-modal');
+            if (modal) {
+                modal.classList.remove('show');
+            }
+        }
+
+        // --- Inicialización ---
+
+        window.onload = function() {
+            renderSlides();
+            renderQuiz();
+            actualizarProgresoVideos();
+            actualizarProgresoLibreta();
+            actualizarProgresoGlobal();
+            
+            // Inicialización de pestañas al cargar el contenido, pero solo el render de la activa
+            document.querySelectorAll('.tab-btn').forEach(btn => {
+                btn.addEventListener('click', () => cambiarTab(btn.dataset.tab));
+            });
+
+            // Inicializar la pestaña activa (Introducción)
+            cambiarTab('introduccion');
+        };
+    </script>
+</body>
+</html>
